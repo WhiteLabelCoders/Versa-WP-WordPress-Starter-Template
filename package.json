@@ -1,0 +1,26 @@
+{
+  "name": "wlc-starter-theme",
+  "version": "1.0.0",
+  "description": "WLC Starter Theme Demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mateusz Major",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cwebp": "^4.0.1",
+    "gulp-file-sync": "^2.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^2.0.1",
+    "node-sass": "^4.14.1"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.12",
+    "watch": "^1.0.2"
+  }
+}
