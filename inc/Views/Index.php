@@ -4,7 +4,7 @@ namespace WLC\Views;
 use WLC\Core\Enqueue;
 
 class Index {
-    use Enqueue;
+	use Enqueue;
 
 
 	/**

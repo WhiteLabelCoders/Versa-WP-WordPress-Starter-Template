@@ -8,7 +8,7 @@ class Theme {
 	 */
 	public function hooks() {
 		add_action( 'init', array( new SvgSupport(), 'enable' ) );
-		add_action( 'init', array( new ACF(), 'hooks' ) );
+		add_action( 'after_setup_theme', array( new ACF(), 'hooks' ) );
 		add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
 		add_action( 'after_setup_theme', array( $this, 'register_menus' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
