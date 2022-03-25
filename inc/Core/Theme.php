@@ -83,8 +83,8 @@ class Theme {
 		if ( function_exists( 'acf_add_options_sub_page' ) ) {
 			acf_add_options_sub_page(
 				array(
-					'page_title'  => __( 'Theme Settings', 'sunlovers' ),
-					'menu_title'  => __( 'Theme Settings', 'sunlovers' ),
+					'page_title'  => __( 'Theme Settings', 'WLC' ),
+					'menu_title'  => __( 'Theme Settings', 'WLC' ),
 					'parent_slug' => 'themes.php',
 				)
 			);

@@ -1,0 +1,1 @@
+{"version":3,"file":"css/blocks/block.css","mappings":"AAAA,MACI,qBACJ,C","sources":["webpack://custom-theme/./assets/scss/blocks/block.scss"],"sourcesContent":[".test {\n    background-color: black;\n}"],"names":[],"sourceRoot":""}
