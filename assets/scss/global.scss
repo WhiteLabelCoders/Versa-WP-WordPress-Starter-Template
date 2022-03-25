@@ -1,0 +1,88 @@
+// -------------------------GLOBAL
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+// If you use custom fonts from svg files use this
+@import '../fonts/_icons';
+//
+
+@import '~bootstrap/scss/bootstrap-reboot';
+
+// -------------------------LAYOUT
+@import 'layout/header';
+@import 'layout/footer';
+
+// -------------------------MODULES
+@import 'modules/gutenberg';
+
+// -------------------------PARTIALS
+
+html,
+body {
+  color: var(--body-color);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base);
+  min-height: 100vh;
+  @include font-weight(normal);
+}
+
+// If have use responsive font use this and check variables settings in _variables.scss
+html {
+  scroll-behavior: smooth;
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+//
+
+.site-content {
+  flex: 1 0 auto;
+}
+
+// Developer mode styles
+@if $dev-mode != false {
+  .container-fluid,
+  .container,
+  [class^="col-"],
+  [class*=" col-"] {
+    background-image: linear-gradient(to right,
+            $dev-grid-padding-color 0px,
+            $dev-grid-padding-color $grid-gutter-width / 2,
+            $dev-grid-column-color $grid-gutter-width / 2,
+            $dev-grid-column-color calc(100% - #{$grid-gutter-width / 2}),
+            $dev-grid-padding-color calc(100% - #{$grid-gutter-width / 2}),
+            $dev-grid-padding-color 100%);
+    box-shadow: inset 0 0 0 1px $dev-outline-color;
+  }
+}
+
+.container {
+  clear: both;
+  margin: 0 auto;
+  padding-right: calc(#{$grid-gutter-width} / 2);
+  padding-left: calc(#{$grid-gutter-width} / 2);
+  width: 100%;
+
+  @each $container-size-name, $container-max in $container-max-widths {
+    @include media-breakpoint-up($container-size-name) {
+      max-width: $container-max;
+    }
+  }
+}
+
+.entry-content {
+  .alignwide {
+    margin-left: -80px;
+    margin-right: -80px;
+  }
+
+  .alignfull {
+    margin-left: calc(-100vw / 2 + 100% / 2);
+    margin-right: calc(-100vw / 2 + 100% / 2);
+    max-width: 100vw;
+
+    img {
+      width: 100vw;
+    }
+  }
+}

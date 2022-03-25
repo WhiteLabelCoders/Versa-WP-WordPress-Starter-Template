@@ -1,0 +1,71 @@
+.has{
+    //font sizes
+
+    &-big-font-size {
+        font-size: rem(20);
+    }
+
+    &-medium-font-size {
+        font-size: rem(18);
+    }
+
+    &-normal-font-size {
+        font-size: rem(14);
+    }
+
+    &-small-font-size {
+        font-size: rem(12);
+    }
+
+    // colors
+
+    &-white-color {
+        color: $white;
+    }
+
+    &-black-color {
+        color: $black;
+    }
+
+    &-gray-light-gray {
+        color: $gray-200;
+    }
+
+    &-gray-color {
+        color: $gray-800;
+    }
+
+    &-pink-color {
+        color: $pink;
+    }
+
+    &-red-color {
+        color: $red;
+    }
+
+    // background-color
+
+    &-red-background-color {
+        background-color: $red;
+    }
+
+    &-pink-background-color {
+        background-color: $pink;
+    }
+
+    &-gray-background-color {
+        background-color: $gray-800;
+    }
+
+    &-gray-light-background-color {
+        background-color: $gray-200;
+    }
+
+    &-black-background-color {
+        background-color: $black;
+    }
+
+    &-white-background-color {
+        background-color: $white;
+    }
+}

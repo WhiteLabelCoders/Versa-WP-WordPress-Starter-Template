@@ -1,4 +1,13 @@
+/node_modules/
+*.DS_Store
+/.idea
+/.Trash-1000
+report.html
+gulpconfig.js
+build/css/critical.css
+.history/
+package-lock.json
+yarn.lock
 /vendor
-/node_modules
-gulpfile.js
 .env
+/app/
