@@ -1,8 +1,7 @@
 let mix = require('laravel-mix');
-const ImageminPlugin     = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin  = require('copy-webpack-plugin');
-const imageminMozjpeg    = require('imagemin-mozjpeg');
-const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const { extendDefaultPlugins } = require("svgo");
 const fs = require('fs');
 const path = require('path');
 
@@ -31,37 +30,49 @@ mix.options({
 });
 mix.webpackConfig({
   plugins: [
-      //Compress images
-      new CopyWebpackPlugin({
-        patterns: [
-          { from: 'assets/images', to: 'images/' }
-        ]
-      }),
-      new ImageminPlugin({
-          test: /\.(jpe?g|png|gif|svg)$/i,
-          pngquant: {
-              quality: '75-80'
-          },
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'assets/images', to: 'images/' },
+        { from: 'assets/vendors', to: 'vendors/' },
+        { from: 'assets/svg', to: 'svg/' }
+      ]
+    }),
+    new ImageMinimizerPlugin({
+      minimizer: {
+        implementation: ImageMinimizerPlugin.imageminMinify,
+        options: {
+          // Lossless optimization with custom option
+          // Feel free to experiment with options for better result for you
           plugins: [
-              imageminMozjpeg({
-                  quality: 75,
-                  //Set the maximum memory to use in kbytes
-                  maxmemory: 1000 * 512
-              })
-          ]
-      }),
-      new ImageminWebpWebpackPlugin( [{
-        config: [{
-          test: /\.(jpe?g|png)/,
-          options: {
-            quality:  100
-          }
-        }],
-        overrideExtension: true,
-        detailedLogs: false,
-        silent: false,
-        strict: true
-      }] )
+            ["gifsicle", { interlaced: true }],
+            ["jpegtran", { progressive: true }],
+            ["optipng", { optimizationLevel: 5 }],
+            // Svgo configuration here https://github.com/svg/svgo#configuration
+            [
+              "svgo",
+              {
+                plugins: [
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        // customize default plugin options
+                        inlineStyles: {
+                          onlyMatchedOnce: false,
+                        },
+                        // or disable plugins
+                        removeDoctype: true,
+                        removeViewBox: true,
+                      },
+                    },
+                  },
+                ],
+              },
+            ],
+          ],
+        },
+      },
+    }),
   ],
   watchOptions: { 
     ignored: /node_modules/ 
@@ -96,12 +107,6 @@ for (let file of jsFiles ) {
   mix
     .js(`assets/js/blocks/${file}`, 'js/blocks')
     .sourceMaps();
-}
-
-if(mix.inProduction()) {
-  mix.copyDirectory('assets/vendors', 'dist/vendors');
-} else {
-  mix.copyDirectory('assets/vendors', 'app/vendors');
 }
 
 // Full API

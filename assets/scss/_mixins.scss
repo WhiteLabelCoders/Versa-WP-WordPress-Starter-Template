@@ -1,186 +1,93 @@
-// =============================================================================
-// FONT FACE
-// =============================================================================
-// Built from https://css-tricks.com/snippets/css/using-font-face/
-//
-// $font-patch - path + file name. Ex : path/to/font/filename
-//
-// OPTIONS:
-// - "modern" (IE9+ / Android native browser 4.4+ / Safari 5.1+ ) (default)
-// - "recent" (IE9+ / Android native browser 4.0+ / Safari 4.3+)
-// - "oldie" (IE8+ / Android native browser 4+ / Safari 4.3+)
-//
-// EXAMPLE HOW TO USE:
-// 
-// @include font-face("Roboto", "../fonts/roboto/roboto-bold-italic", 700 );
-// 
-// or full options
-// 
-// @include font-face("Roboto", "../fonts/roboto/roboto-bold-italic", 700, italic, "modern" );
-// 
-@mixin font-face($font-name, $font-path, $font-weight: 400, $font-style: normal, $support-required: 'modern') {
-  @font-face {
-    font-family: $font-name;
-    font-style: $font-style;
-    font-weight: $font-weight;
-    font-display: swap;
-
-    @if $support-required=='oldie' {
-      src: url('#{$font-path}.eot');
-      src: url('#{$font-path}.eot?#iefix') format('embedded-opentype'),
-      url('#{$font-path}.woff2') format('woff2'),
-      url('#{$font-path}.woff') format('woff'),
-      url('#{$font-path}.ttf') format('truetype');
+// Media up
+@mixin media-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
     }
-
-    @if $support-required=='recent' {
-      src: url('#{$font-path}.woff2') format('woff2'),
-      url('#{$font-path}.woff') format('woff'),
-      url('#{$font-path}.ttf') format('truetype');
-    }
-
-    @if $support-required=='modern' {
-      src: url('#{$font-path}.woff2') format('woff2'),
-      url('#{$font-path}.woff') format('woff');
-    }
-  }
-
-  @if $support-required !='oldie'and $support-required !='recent'and $support-required !='modern' {
-    @error 'Invalid support-required value. Must be "oldie"==>IE8 and above/ Android native browser 4+/ Safari 4.3 OR "recent"==>IE9+/ Android native browser 4.0+/ Safari 4.3+ OR "modern"==>IE9+/ Android native browser 4.4+/ Safari 5.1+';
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
-// =============================================================================
-// RESPONSIVE FONTS
-// =============================================================================
-@function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
+
+// Media down
+@mixin media-down($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
 }
 
-// $min-font-size - min font size for responsive range
-// $max-font-size - max font size for responsive range
-// $min-vw - min width responsive range
-// $max-vw - max width responsive range
 
-@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
+// Media between (lower resolution, upper resolution)
+@mixin media-between($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+  } @else {
+    @if (map-has-key($breakpoints, $lower) == false) {
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+    @if (map-has-key($breakpoints, $upper) == false) {
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}
 
-  @if $u1==$u2 and $u1==$u3 and $u1==$u4 {
-    & {
 
-      font-size: $min-font-size;
+// Container max widths
+@mixin container-max-widths() {
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    @include media-up($breakpoint) {
+      max-width: $container-max-width !important;
+    }
+  }
+}
 
-      @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+
+// Disable user selection
+@mixin nonselect {
+  user-select: none;
+}
+
+
+// Color
+@function color($name: 'text',$scheme: 'light', $opacity: 1) {
+  $color-schemes: map-get($colors, $scheme);
+  $color: map-get($color-schemes, $name);
+
+  @return rgba($color, $opacity);
+}
+
+
+// Row
+@mixin row() {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+// Column
+@mixin col($sizes...) {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 100%;
+  @each $size in $sizes {
+    @if map-has-key($breakpoints, nth($size,1)) {
+      @include media-up(nth($size,1)) {
+        $width: ((100% / $grid-columns) * nth($size,2));
+        flex-basis: $width;
+        max-width: $width;
       }
-
-      @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size;
-      }
-    }
-  }
-}
-
-// =============================================================================
-// CLEARFIX
-// =============================================================================
-%clearfix {
-  *zoom: 1;
-
-  &::before,
-  &::after {
-    content: " ";
-    display: table;
-  }
-
-  &::after {
-    clear: both;
-  }
-}
-
-// =============================================================================
-// TRUNCATE SINGLE LINE TEXT
-// =============================================================================
-@mixin truncateText($overflow: ellipsis) {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: $overflow; // values are: clip, ellipsis, or a string
-}
-
-// =============================================================================
-// TRUNCATE MULTI LINE TEXT
-// =============================================================================
-@mixin truncateLines($lines) {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
-}
-
-// =============================================================================
-// PX TO REM
-// =============================================================================
-@function rem($size) {
-  $remSize: $size / $base-font-size + rem;
-  @return $remSize;
-}
-
-// =============================================================================
-// ASPECT RATIO
-// =============================================================================
-@mixin aspect-ratio($width, $height) {
-  position: relative;
-
-  &::before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: ($height / $width) * 100%;
-  }
-
-  >.content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
-
-// =============================================================================
-// CUSTOM MEDIA QUERIES
-// =============================================================================
-@mixin media-breakpoint-up($media) {
-  @each $breakpoint-name, $breakpoint-size in $grid-breakpoints {
-    @if $media==$breakpoint-name {
-      @media (min-width: $breakpoint-size) {
-        @content;
-      }
-    }
-  }
-}
-
-// =============================================================================
-// CUSTOM TRANSITIONS
-// =============================================================================
-@mixin transition($property: all, $duration: $default-transition-duration, $timing: $default-transition-timing, $delay: 0s) {
-  transition-property: $property;
-  transition-duration: $duration;
-  transition-timing-function: $timing;
-  transition-delay: $delay;
-}
-
-
-// =============================================================================
-// FONT WEIGHT BY NAME
-// =============================================================================
-@mixin font-weight($font-weight-name) {
-  @each $weight-name, $weight in $font-weights {
-    @if $font-weight-name==$weight-name {
-      font-weight: $weight;
     }
   }
 }
