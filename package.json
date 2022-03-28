@@ -1,26 +1,43 @@
 {
-  "name": "wlc-starter-theme",
+  "name": "custom-theme",
   "version": "1.0.0",
-  "description": "WLC Starter Theme Demo",
-  "main": "index.js",
+  "description": "WLC Starter Theme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production"
   },
-  "author": "Mateusz Major",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.3a.pl/3a-pl/wlcstarter.git"
+  },
+  "author": "WLC",
   "license": "ISC",
+  "browserslist": [
+    "last 2 versions"
+  ],
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-cwebp": "^4.0.1",
-    "gulp-file-sync": "^2.0.0",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-terser": "^2.0.1",
-    "node-sass": "^4.14.1"
-  },
-  "dependencies": {
-    "browser-sync": "^2.26.12",
-    "watch": "^1.0.2"
+    "acorn": "^8.7.0",
+    "ajv": "^8.11.0",
+    "autoprefixer": "^10.4.4",
+    "bootstrap": "^5.1.3",
+    "browser-sync": "^2.27.9",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "copy-webpack-plugin": "^10.2.4",
+    "cross-env": "^7.0.3",
+    "image-minimizer-webpack-plugin": "^3.2.3",
+    "imagemin": "^7.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
+    "laravel-mix": "^6.0.43",
+    "laravel-mix-imagemin": "^1.0.3",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "svgo-loader": "^3.0.0"
   }
 }

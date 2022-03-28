@@ -1,0 +1,1 @@
+{"version":3,"file":"/js/blocks/block.js","mappings":"AAAAA,QAAQC,IAAI","sources":["webpack://custom-theme/./assets/js/blocks/block.js"],"sourcesContent":["console.log('test');"],"names":["console","log"],"sourceRoot":""}

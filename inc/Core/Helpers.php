@@ -6,7 +6,7 @@
  * @return bool
  */
 function is_development() {
-	if ( defined( 'WP_ENV' ) && 'development' === WP_ENV ) {
+	if ( ( defined( 'WP_ENV' ) && 'development' === WP_ENV ) || WP_DEBUG ) {
 		return true;
 	}
 	return false;
@@ -20,7 +20,7 @@ function is_development() {
  * @return float
  */
 function get_theme_version() {
-	return (float) wp_get_theme()->get( 'Version' ) ;
+	return (float) wp_get_theme()->get( 'Version' );
 }
 
 
@@ -32,9 +32,10 @@ function get_theme_version() {
  */
 function get_styles_directory() {
 	if ( is_development() ) {
-		return get_stylesheet_directory() . '/app/css/';
+		return get_template_directory() . '/app/css/';
 	}
-	return get_stylesheet_directory() . '/dist/css/';
+	return get_template_directory() . '/dist/css/';
+
 }
 
 
@@ -46,9 +47,9 @@ function get_styles_directory() {
  */
 function get_styles_uri() {
 	if ( is_development() ) {
-		return get_stylesheet_directory_uri() . '/app/css/';
+		return get_template_directory_uri() . '/app/css/';
 	}
-	return get_stylesheet_directory_uri() . '/dist/css/';
+	return get_template_directory_uri() . '/dist/css/';
 }
 
 
@@ -60,9 +61,9 @@ function get_styles_uri() {
  */
 function get_scripts_directory() {
 	if ( is_development() ) {
-		return get_stylesheet_directory() . '/app/js/';
+		return get_template_directory() . '/app/js/';
 	}
-	return get_stylesheet_directory() . '/dist/js/';
+	return get_template_directory() . '/dist/js/';
 }
 
 
@@ -74,9 +75,9 @@ function get_scripts_directory() {
  */
 function get_scripts_uri() {
 	if ( is_development() ) {
-		return get_stylesheet_directory_uri() . '/app/js/';
+		return get_template_directory_uri() . '/app/js/';
 	}
-	return get_stylesheet_directory_uri() . '/dist/js/';
+	return get_template_directory_uri() . '/dist/js/';
 }
 
 
@@ -88,9 +89,9 @@ function get_scripts_uri() {
  */
 function get_svg_uri() {
 	if ( is_development() ) {
-		return get_stylesheet_directory_uri() . '/app/svg/';
+		return get_template_directory_uri() . '/app/svg/';
 	}
-	return get_stylesheet_directory_uri() . '/dist/svg/';
+	return get_template_directory_uri() . '/dist/svg/';
 }
 
 
@@ -119,15 +120,4 @@ function inline_svg( $url ) {
 			return $file_content;
 		}
 	}
-
-}
-
-
-function read_more( $text, $url ) {
-	?>
-	<a class="read-more" href="<?php echo esc_url( $url ); ?>">
-		<?php echo esc_html( $text ); ?>
-        <?php echo inline_svg( 'read-more.svg' ); ?>
-	</a>
-	<?php
 }

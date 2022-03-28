@@ -18,7 +18,7 @@ get_header();
 
 	<?php do_action( 'wlc_before_content_sidebar_wrap' ); ?>
 
-	<main class="<?php echo esc_attr( apply_filters( 'wlc-content-class', array( 'site-main' ) ) ); ?>">
+	<main>
 		<?php do_action( 'wlc_before_content' ); ?>
 
 		<?php if ( have_posts() ) : ?>
