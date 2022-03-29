@@ -1,15 +1,9 @@
-@import "reset";
 @import "variables";
 @import "mixins";
 
-@import "typography";
+// Global
 @import "base";
-@import "forms";
-@import "components/header";
-@import "components/select2";
-@import "components/filters";
-@import "components/products-grid";
-@import "components/swiper";
-@import "components/blog-grid";
-@import "components/single-post";
-@import "views/theme";
+
+// Components
+
+// Views
