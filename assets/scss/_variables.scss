@@ -1,23 +1,72 @@
+@import 'mixins';
 
-// Variables
-$breakpoints: (
-    xxs: 320px,
-    xs: 576px,
-    sm: 768px,
-    md: 992px,
-    lg: 1200px,
-    xl: 1420px,
-    2xl: 1640px,
-    3xl: 1920px ) !default;
+// =============================================================================
+// 1. Global
+// 2. Grid breakpoints
+// 3. Container max-width sizes
+// 4. Responsive Fonts
+// 5. Root variables
+// =============================================================================
 
-$container-max-widths: ( 
-    sm: 100%,
-    md: 980px, 
-    lg: 1140px, 
-    xl: 1360px,
-    2xl: 1500px ) !default;
+// 1. Global
+// =============================================================================
+
+// If you want use rem to px function define this in pixels exclude 'px'
+$base-font-size: 16;
+
+// Default transitions variables
+$default-transition-duration: 0.15s;
+$default-transition-timing: ease-in-out;
+
+// Grid
+$grid-gutter-width: 2rem !default;
+
+// 2. Grid breakpoints
+// =============================================================================
+$grid-breakpoints: (
+  // Start
+  xxs: 0,
+  // Phone
+  xs: 375px,
+  // Phone
+  sm: 576px,
+  // Tablet
+  md: 768px,
+  // Tablet
+  lg: 992px,
+  // Desktop
+  xl: 1200px,
+  // Desktop
+  xxl: 1440px,
+  // Desktop
+  3xl: 1920px,
+  // Large desktop
+  4xl: 2560px
+);
+
+// 3. Container max-width sizes
+// =============================================================================
+$container-max-widths: (
+  xs: 100%,
+  sm: rem(540),
+  md: rem(720),
+  lg: rem(960),
+  xl: rem(1140),
+  xxl: rem(1270),
+  3xl: rem(1280),
+  4xl: rem(1300)
+);
+
+// 4. Responsive Fonts
+// =============================================================================
+$min_width: map-get($grid-breakpoints, "xs"); // min width responsive range
+$max_width: map-get($grid-breakpoints, "xl"); // max width responsive range
+$min_font: 12px; // min font size for responsive range
+$max_font: 16px; // max font size for responsive range
 
 
+// 5. Root variables
+// =============================================================================
 :root {
  // Place variables here like --primary: #292929;
 }
