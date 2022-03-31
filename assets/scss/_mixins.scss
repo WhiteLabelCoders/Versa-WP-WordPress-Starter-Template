@@ -5,11 +5,12 @@
 // 4. Truncate multi line text
 // 5. PX to REM
 // 6. Aspect ratio
-// 7. Custom media queries up
-// 8. Custom media queries down
-// 9. Custom media queries between
-// 10. Custom transitions
-// 11. Responsive
+// 7. Row
+// 8. Custom media queries up
+// 9. Custom media queries down
+// 10. Custom media queries between
+// 11. Custom transitions
+// 12. Responsive
 // =============================================================================
 
 // 1. Disable user selection
@@ -72,7 +73,14 @@
   }
 }
 
-// 7. Custom media queries up
+// 7. Row
+// =============================================================================
+@mixin row() {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+// 8. Custom media queries up
 // =============================================================================
 @mixin media-breakpoint-up($breakpoint) {
   @if map-has-key($grid-breakpoints, $breakpoint) {
@@ -86,7 +94,7 @@
 }
 
 
-// 8. Custom media queries down
+// 9. Custom media queries down
 @mixin media-breakpoint-down($breakpoint) {
   @if map-has-key($grid-breakpoints, $breakpoint) {
     $breakpoint-value: map-get($grid-breakpoints, $breakpoint);
@@ -98,7 +106,7 @@
   }
 }
 
-// 9. Custom media queries between
+// 10. Custom media queries between
 @mixin media-breakpoint-between($lower, $upper) {
   @if map-has-key($grid-breakpoints, $lower) and map-has-key($grid-breakpoints, $upper) {
     $lower-breakpoint: map-get($grid-breakpoints, $lower);
@@ -116,7 +124,7 @@
   }
 }
 
-// 10. Custom transitions
+// 11. Custom transitions
 // =============================================================================
 @mixin transition($property: all, $duration: $default-transition-duration, $timing: $default-transition-timing, $delay: 0s) {
   transition-property: $property;
@@ -125,7 +133,7 @@
   transition-delay: $delay;
 }
 
-// 11. Responsive
+// 12. Responsive
 // =============================================================================
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);

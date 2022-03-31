@@ -5,6 +5,12 @@ html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
 
+.row {
+  @include row();
+  margin-right: -(calc($grid-gutter-width / 2));
+  margin-left: -(calc($grid-gutter-width / 2));
+}
+
 .container {
   clear: both;
   margin: 0 auto;
