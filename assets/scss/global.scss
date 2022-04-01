@@ -1,15 +1,25 @@
-@import "reset";
+// =============================================================================
+// 1. Global
+// 2. Components
+// 3. Views
+// =============================================================================
+
+// 1. Global
+// =============================================================================
 @import "variables";
 @import "mixins";
-
-@import "typography";
+// The import error does not allow you to manage the loading of this file, sorry.
+// If you are not using Bootstrap, comment out @import "custom";
+// More info on https://errorsfixing.com/scss-if-variable-value-import-not-possible/
+// @import "custom";
+//
+@if $use-bootstrap-grid == false {
+  @import "~bootstrap/dist/css/bootstrap-reboot.min.css";
+}
 @import "base";
-@import "forms";
-@import "components/header";
-@import "components/select2";
-@import "components/filters";
-@import "components/products-grid";
-@import "components/swiper";
-@import "components/blog-grid";
-@import "components/single-post";
-@import "views/theme";
+
+// 2. Components
+// =============================================================================
+
+// 3. Views
+// =============================================================================

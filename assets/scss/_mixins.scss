@@ -1,7 +1,90 @@
-// Media up
-@mixin media-up($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
+// =============================================================================
+// 1. Disable user selection
+// 2. Color
+// 3. Truncate single line text
+// 4. Truncate multi line text
+// 5. PX to REM
+// 6. Aspect ratio
+// 7. Row
+// 8. Custom media queries up
+// 9. Custom media queries down
+// 10. Custom media queries between
+// 11. Custom transitions
+// 12. Responsive
+// =============================================================================
+
+// 1. Disable user selection
+// =============================================================================
+@mixin nonselect {
+  user-select: none;
+}
+
+// 2. Color
+// =============================================================================
+@function color($name: 'text',$scheme: 'light', $opacity: 1) {
+  $color-schemes: map-get($colors, $scheme);
+  $color: map-get($color-schemes, $name);
+
+  @return rgba($color, $opacity);
+}
+
+// 3. Truncate single line text
+// =============================================================================
+@mixin truncateText($overflow: ellipsis) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow; // values are: clip, ellipsis, or a string
+}
+
+// 4. Truncate multi line text
+// =============================================================================
+@mixin truncateLines($lines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+// 5. PX to REM
+// =============================================================================
+@function rem($size) {
+  $remSize: calc( $size / $base-font-size );
+  @return $remSize * 1rem;
+}
+
+// 6. Aspect ratio
+// =============================================================================
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: calc(($height / $width) * 100%);
+  }
+
+  >.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// 7. Row
+// =============================================================================
+@mixin row() {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+// 8. Custom media queries up
+// =============================================================================
+@mixin media-breakpoint-up($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($grid-breakpoints, $breakpoint);
     @media (min-width: $breakpoint-value) {
       @content;
     }
@@ -10,11 +93,10 @@
   }
 }
 
-
-// Media down
-@mixin media-down($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
+// 9. Custom media queries down
+@mixin media-breakpoint-down($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($grid-breakpoints, $breakpoint);
     @media (max-width: ($breakpoint-value - 1)) {
       @content;
     }
@@ -23,70 +105,61 @@
   }
 }
 
-
-// Media between (lower resolution, upper resolution)
-@mixin media-between($lower, $upper) {
-  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
-    $lower-breakpoint: map-get($breakpoints, $lower);
-    $upper-breakpoint: map-get($breakpoints, $upper);
+// 10. Custom media queries between
+@mixin media-breakpoint-between($lower, $upper) {
+  @if map-has-key($grid-breakpoints, $lower) and map-has-key($grid-breakpoints, $upper) {
+    $lower-breakpoint: map-get($grid-breakpoints, $lower);
+    $upper-breakpoint: map-get($grid-breakpoints, $upper);
     @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
       @content;
     }
   } @else {
-    @if (map-has-key($breakpoints, $lower) == false) {
+    @if (map-has-key($grid-breakpoints, $lower) == false) {
       @warn 'Your lower breakpoint was invalid: #{$lower}.';
     }
-    @if (map-has-key($breakpoints, $upper) == false) {
+    @if (map-has-key($grid-breakpoints, $upper) == false) {
       @warn 'Your upper breakpoint was invalid: #{$upper}.';
     }
   }
 }
 
-
-// Container max widths
-@mixin container-max-widths() {
-  @each $breakpoint, $container-max-width in $container-max-widths {
-    @include media-up($breakpoint) {
-      max-width: $container-max-width !important;
-    }
-  }
+// 11. Custom transitions
+// =============================================================================
+@mixin transition($property: all, $duration: $default-transition-duration, $timing: $default-transition-timing, $delay: 0s) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+  transition-delay: $delay;
 }
 
-
-// Disable user selection
-@mixin nonselect {
-  user-select: none;
+// 12. Responsive
+// =============================================================================
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
 }
 
+// $min-font-size - min font size for responsive range
+// $max-font-size - max font size for responsive range
+// $min-vw - min width responsive range
+// $max-vw - max width responsive range
 
-// Color
-@function color($name: 'text',$scheme: 'light', $opacity: 1) {
-  $color-schemes: map-get($colors, $scheme);
-  $color: map-get($color-schemes, $name);
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
 
-  @return rgba($color, $opacity);
-}
+  @if $u1==$u2 and $u1==$u3 and $u1==$u4 {
+    & {
 
+      font-size: $min-font-size;
 
-// Row
-@mixin row() {
-  display: flex;
-  flex-flow: row wrap;
-}
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
 
-
-// Column
-@mixin col($sizes...) {
-  display: flex;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: 100%;
-  @each $size in $sizes {
-    @if map-has-key($breakpoints, nth($size,1)) {
-      @include media-up(nth($size,1)) {
-        $width: ((100% / $grid-columns) * nth($size,2));
-        flex-basis: $width;
-        max-width: $width;
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
       }
     }
   }
