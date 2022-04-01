@@ -8,11 +8,18 @@
 // =============================================================================
 @import "variables";
 @import "mixins";
+// The import error does not allow you to manage the loading of this file, sorry.
+// If you are not using Bootstrap, comment out @import "custom";
+// More info on https://errorsfixing.com/scss-if-variable-value-import-not-possible/
+// @import "custom";
+//
+@if $use-bootstrap-grid == false {
+  @import "~bootstrap/dist/css/bootstrap-reboot.min.css";
+}
 @import "base";
 
 // 2. Components
 // =============================================================================
-@import "~bootstrap/dist/css/bootstrap-reboot.min.css";
 
 // 3. Views
 // =============================================================================

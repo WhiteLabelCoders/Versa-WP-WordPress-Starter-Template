@@ -11,6 +11,9 @@
 // 1. Global
 // =============================================================================
 
+// Choose whether to use bootstrap grid e.g. container, row, col etc.
+$use-bootstrap-grid: false;
+
 // If you want use rem to px function define this in pixels exclude 'px'
 $base-font-size: 16;
 
@@ -19,7 +22,7 @@ $default-transition-duration: 0.15s;
 $default-transition-timing: ease-in-out;
 
 // Grid
-$grid-gutter-width: 2rem !default;
+$grid-gutter-width: 2rem;
 
 // 2. Grid breakpoints
 // =============================================================================

@@ -93,7 +93,6 @@
   }
 }
 
-
 // 9. Custom media queries down
 @mixin media-breakpoint-down($breakpoint) {
   @if map-has-key($grid-breakpoints, $breakpoint) {
