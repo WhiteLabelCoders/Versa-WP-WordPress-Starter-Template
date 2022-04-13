@@ -22,7 +22,7 @@ class Index {
 	 */
 	public function global_assets() {
 		$this->enqueue_style( 'googlefonts', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap' );
-		$this->enqueue_style( 'global', 'global.css', array(), false, false, array( 'crossorigin' => 'anonymous' ) );
+		$this->enqueue_style( 'global', 'global.css' );
 		$this->enqueue_script( 'app', 'app.js' );
 		wp_localize_script(
 			'main',
