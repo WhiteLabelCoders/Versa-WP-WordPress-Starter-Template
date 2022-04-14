@@ -18,7 +18,7 @@ $setup = new WLC\Core\Theme();
 $setup->hooks();
 $setup->class_loader(
 	array(
-		'WLC\Blocks\BlockFAQ',
+		'WLC\Blocks\SimpleBlock',
 		'WLC\Components\Header',
 		'WLC\Components\Footer',
 		'WLC\Components\LoopPosts',

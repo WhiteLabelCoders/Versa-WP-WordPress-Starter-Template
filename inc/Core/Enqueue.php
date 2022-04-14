@@ -1,8 +1,6 @@
 <?php
 namespace WLC\Core;
 
-use WLC\Views\Page;
-
 trait Enqueue {
 
 	/**
