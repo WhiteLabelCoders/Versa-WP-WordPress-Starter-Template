@@ -19,12 +19,13 @@ trait Enqueue {
 		$src = $file;
 		if ( ! filter_var( $file, FILTER_VALIDATE_URL ) ) {
 			$src = get_styles_uri() . $file;
-			if ( ! $version && file_exists( get_styles_directory() . $file ) ) {
-				$version = filemtime( get_styles_directory() . $file );
+			if ( ! $version && file_exists( get_scripts_directory() . $file ) ) {
+				if ( is_development() ) {
+					$version = filemtime( get_scripts_directory() . $file );
+				} else {
+					$version = get_theme_version();
+				}
 			}
-		}
-		if ( ! $version ) {
-			$version = get_theme_version();
 		}
 		if ( ! $media ) {
 			$media = 'all';
@@ -36,28 +37,42 @@ trait Enqueue {
 			$version
 		);
 		if ( $attributes ) {
-			add_filter( 'style_loader_tag', function( $filter_tag, $filter_handle, $filter_href, $filter_media ) use ( $handle, $attributes ) {
-				if ( $filter_handle === $handle ) {
-
-					foreach( $attributes as $name => $value ) {
-						if ( is_string( $name ) ) {
-							if ( false === strpos( $filter_tag, $name ) ) {
-								$filter_tag = str_replace( '<link', '<link ' . $name . '=' . $value . '"', $filter_tag );
-							} else {
-								$filter_tag = preg_replace('\''. $name .'=\\\'.*\\\'\'', $name . '=\''. $value .'\'', $filter_tag );
-							}
-						} else {
-							if ( false === strpos( $filter_tag, $value ) ) {
-								$filter_tag = str_replace( '<link', '<link ' . $value, $filter_tag );
-							}
-						}
-					}
-
-				}
-				return $filter_tag;
-			}, 10, 4 );
+			$this->filter_style_loader_tag( $handle, $attributes );
 		}
 
+	}
+
+
+
+	/**
+	 * Add/remove style attributes
+	 *
+	 * @param string $handle     Unique name of the stylesheet.
+	 * @param array  $attributes Array of stylesheet attributes.
+	 *
+	 * @see https://developer.wordpress.org/reference/hooks/script_loader_tag/
+	 */
+	public function filter_style_loader_tag( $handle, $attributes ) {
+		add_filter( 'style_loader_tag', function( $filter_tag, $filter_handle, $filter_href, $filter_media ) use ( $handle, $attributes ) {
+			if ( $filter_handle === $handle ) {
+
+				foreach( $attributes as $name => $value ) {
+					if ( is_string( $name ) ) {
+						if ( false === strpos( $filter_tag, $name ) ) {
+							$filter_tag = str_replace( '<link', '<link ' . $name . '=' . $value . '"', $filter_tag );
+						} else {
+							$filter_tag = preg_replace('\''. $name .'=\\\'.*\\\'\'', $name . '=\''. $value .'\'', $filter_tag );
+						}
+					} else {
+						if ( false === strpos( $filter_tag, $value ) ) {
+							$filter_tag = str_replace( '<link', '<link ' . $value, $filter_tag );
+						}
+					}
+				}
+
+			}
+			return $filter_tag;
+		}, 10, 4 );
 	}
 
 
@@ -71,17 +86,20 @@ trait Enqueue {
 	 * @param false|string $version    Script version.
 	 * @param bool         $in_footer  Place script in footer?
 	 * @param string[]     $attributes Array of additional attributes like for e.g. array( 'defer', 'async', crossorigin => 'anonymous' );
+	 *
+	 * @see https://developer.wordpress.org/reference/functions/wp_enqueue_script/
 	 */
 	public function enqueue_script( string $handle, string $file, array $deps = array(), $version = false, bool $in_footer = true, array $attributes = array() ) {
 		$src = $file;
 		if ( ! filter_var( $file, FILTER_VALIDATE_URL ) ) {
 			$src = get_scripts_uri() . $file;
 			if ( ! $version && file_exists( get_scripts_directory() . $file ) ) {
-				$version = filemtime( get_scripts_directory() . $file );
+				if ( is_development() ) {
+					$version = filemtime( get_scripts_directory() . $file );
+				} else {
+					$version = get_theme_version();
+				}
 			}
-		}
-		if ( ! $version ) {
-			$version = get_theme_version();
 		}
 		wp_enqueue_script(
 			$handle,
@@ -91,28 +109,42 @@ trait Enqueue {
 			$in_footer
 		);
 		if ( $attributes ) {
-			add_filter( 'script_loader_tag', function( $filter_tag, $filter_handle ) use ( $handle, $attributes ) {
-				if ( $filter_handle === $handle ) {
+			$this->filter_script_loader_tag( $handle, $attributes );
+		}
+	}
 
-					foreach( $attributes as $name => $value ) {
-						if ( is_string( $name ) ) {
-							if ( false === strpos( $filter_tag, $name ) ) {
-								$filter_tag = str_replace( '<script', '<script ' . $name . '="' . $value . '"', $filter_tag );
-							} else {
-								$filter_tag = preg_replace('\''. $name .'=\\\'.*\\\'\'', $name . '=\''. $value .'\'', $filter_tag );
-							}
+
+
+	/**
+	 * Add/remove script attributes
+	 *
+	 * @param string $handle     Unique name of the script.
+	 * @param array  $attributes Array of script attributes like for e.g. array( 'defer', 'async', crossorigin => 'anonymous' );
+	 *
+	 * @see https://developer.wordpress.org/reference/hooks/script_loader_tag/
+	 */
+	public function filter_script_loader_tag( $handle, $attributes ) {
+		add_filter( 'script_loader_tag', function( $filter_tag, $filter_handle ) use ( $handle, $attributes ) {
+			if ( $filter_handle === $handle ) {
+
+				foreach( $attributes as $name => $value ) {
+					if ( is_string( $name ) ) { // Add attributes name and value pair if non exists already.
+						if ( false === strpos( $filter_tag, $name ) ) {
+							$filter_tag = str_replace( '<script', '<script ' . $name . '="' . $value . '"', $filter_tag );
 						} else {
-							if ( false === strpos( $filter_tag, $value ) ) {
-								$filter_tag = str_replace( '<script', '<script ' . $value, $filter_tag );
-							}
+							$filter_tag = preg_replace('\''. $name .'=\\\'.*\\\'\'', $name . '=\''. $value .'\'', $filter_tag );
+						}
+					} else { // Add single attribute if already non exists.
+						if ( false === strpos( $filter_tag, $value ) ) {
+							$filter_tag = str_replace( '<script', '<script ' . $value, $filter_tag );
 						}
 					}
-
-					return $filter_tag;
-
 				}
-			}, 10, 2 );
-		}
+
+				return $filter_tag;
+
+			}
+		}, 10, 2 );
 	}
 
 
