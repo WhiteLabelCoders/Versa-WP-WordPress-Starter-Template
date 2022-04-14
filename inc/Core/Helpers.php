@@ -97,6 +97,20 @@ function get_svg_uri() {
 
 
 /**
+ * Get vendor url
+ *
+ * @return string
+ */
+function get_vendor_uri() {
+	if ( is_development() ) {
+		return get_template_directory_uri() . '/app/vendors/';
+	}
+	return get_template_directory_uri() . '/dist/vendors/';
+}
+
+
+
+/**
  * Get svg file content from filename or full url.
  *
  * @param string $url Full url or just filename with extension.
