@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 };
 
-require_once __DIR__ . '/inc/core/helpers.php';
 require_once __DIR__ . '/inc/core/autoloader.php';
+require_once __DIR__ . '/inc/core/helpers.php';
 
 $setup = new WLC\Core\Theme();
 $setup->hooks();

@@ -21,8 +21,8 @@ class Index {
 	 * Integrate with WordPress actions and filters hooks
 	 */
 	public function hooks() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'global_assets ' ) );
-		add_action( 'template_redirect', array( $this, 'view_hooks ' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'global_assets' ) );
+		add_action( 'template_redirect', array( $this, 'view_hooks' ) );
 	}
 
 

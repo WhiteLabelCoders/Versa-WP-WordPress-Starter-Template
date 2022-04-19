@@ -1,4 +1,11 @@
 <?php
+/**
+ * Simple block structure and content.
+ *
+ * @package wlc-starter
+ * @author  Mateusz Major
+ * @link    https://whitelabelcoders.com/
+ */
 
 namespace WLC\Blocks;
 
@@ -13,6 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Simple_Block extends Abstract_Block {
 
+	/**
+	 * Simple block constructor.
+	 */
 	public function __construct() {
 		parent::__construct();
 		$this->title       = __( 'Simple block', 'WLC' );

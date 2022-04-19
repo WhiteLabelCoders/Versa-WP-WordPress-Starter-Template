@@ -102,14 +102,14 @@ abstract class Abstract_Block {
 	public function register_block_type() {
 		if ( function_exists( 'acf_register_block_type' ) ) {
 			$block = array(
-				'name'        => $this->block_name,
-				'title'       => $this->title,
-				'description' => $this->description,
-				'keywords'    => '',
-				'category'    => $this->category,
-				'align'       => $this->align,
-				'icon'        => $this->icon,
-				'supports'    => array(
+				'name'           => $this->block_name,
+				'title'          => $this->title,
+				'description'    => $this->description,
+				'keywords'       => '',
+				'category'       => $this->category,
+				'align'          => $this->align,
+				'icon'           => $this->icon,
+				'supports'       => array(
 					'align'         => $this->supports_align,
 					'align_content' => true,
 					'anchor'        => true,
