@@ -7,4 +7,5 @@ lint:
   tags:
     - docker
   script:
+    - "phpcs --encoding=UTF8 --standard=WordPress-Core */*.php"
     - "phpcs --encoding=UTF8 --standard=WordPress-Core *.php"
