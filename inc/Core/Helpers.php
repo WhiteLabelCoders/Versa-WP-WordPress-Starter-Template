@@ -97,13 +97,32 @@ function get_svg_uri() {
 
 
 /**
- * Get svg file content from filename or full url.
- *
- * @param string $url Full url or just filename with extension.
+ * Get vendor url
  *
  * @return string
  */
-function inline_svg( $url ) {
+function get_vendor_uri() {
+	if ( is_development() ) {
+		return get_template_directory_uri() . '/app/vendors/';
+	}
+	return get_template_directory_uri() . '/dist/vendors/';
+}
+
+
+
+/**
+ * Get svg file content from filename or full url.
+ *
+ * @param string       $url   Full url or just filename with extension.
+ * @param string|array $class Additional css class.
+ *
+ * @return string
+ */
+function inline_svg( $url, $class = array() ) {
+
+	if ( $class && is_string( $class ) ) {
+		$class = array( $class );
+	}
 
 	if ( ! filter_var( $url, FILTER_VALIDATE_URL ) ) {
 		$url = get_svg_uri() . $url;
@@ -117,7 +136,15 @@ function inline_svg( $url ) {
 		$file_type = wp_remote_retrieve_header( $file, 'content-type' );
 		if ( 'image/svg+xml' === $file_type ) {
 			$file_content = wp_remote_retrieve_body( $file );
+			if ( $class ) {
+				if ( strpos( $file_content, 'class=' ) ) {
+					$file_content = preg_replace('\'class=\\\'.*\\\'\'', 'class=\''. implode( ' ', $class ) .'\'', $file_content );
+				} else {
+					$file_content = str_replace( '<svg', '<svg class="' . implode( ' ', $class ) . '"', $file_content );
+				}
+			}
 			return $file_content;
 		}
 	}
+
 }
