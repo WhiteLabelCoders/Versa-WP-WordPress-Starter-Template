@@ -1,7 +1,7 @@
 <?php
 namespace WLC\Views;
 
-class SinglePost extends Index {
+class Single_Post extends Index {
 
 	/**
 	 * Integrate with WordPress actions and filters hooks

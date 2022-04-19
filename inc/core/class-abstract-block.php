@@ -2,13 +2,13 @@
 
 namespace WLC\Core;
 
-use WLC\Core\Enqueue;
+use WLC\Core\Enqueue_Trait;
 
 /**
  * Contains common methods for all Gutenberg blocks.
  */
-abstract class AbstractBlock {
-	use Enqueue;
+abstract class Abstract_Block {
+	use Enqueue_Trait;
 
 	/**
 	 * A unique name (slug) that identifies the block.
@@ -82,7 +82,7 @@ abstract class AbstractBlock {
 	 */
 	public function get_block_name( string $class_name ): string {
 		$name = explode( '\\', $class_name );
-		return ltrim( strtolower( preg_replace( '/[A-Z]([A-Z](?![a-z]))*/', '_$0', array_pop( $name ) ) ), '_' );
+		return strtolower( preg_replace( '/_/', '-', array_pop( $name ) ) );
 	}
 
 

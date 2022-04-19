@@ -1,7 +1,7 @@
 <?php
 namespace WLC\Core;
 
-trait Enqueue {
+trait Enqueue_Trait {
 
 	/**
 	 * Wrapper for enqueue style.

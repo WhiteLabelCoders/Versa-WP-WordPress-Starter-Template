@@ -1,7 +1,7 @@
 <?php
 namespace WLC\Core;
 
-class SvgSupport {
+class Svg_Support {
 
 	/**
 	 * Integrate with WordPress hooks and filters

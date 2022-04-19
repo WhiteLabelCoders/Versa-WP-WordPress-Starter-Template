@@ -1,7 +1,7 @@
 <?php
 namespace WLC\Components;
 
-class LoopPosts {
+class Loop_Posts {
 
 	/**
 	 * Integrate hooks with WordPress.

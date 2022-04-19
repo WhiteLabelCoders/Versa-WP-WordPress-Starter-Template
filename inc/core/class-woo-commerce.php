@@ -1,7 +1,7 @@
 <?php
 namespace WLC\Core;
 
-class WooCommerce {
+class Woo_Commerce {
 
 	/**
 	 * Integrate with WordPress hooks and filters

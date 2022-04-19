@@ -1,8 +1,20 @@
 <?php
+/**
+ * View blog class file.
+ *
+ * @package wlc-starter.
+ * @author  Mateusz Major
+ * @link    https://whitelabelcoders.com/
+ */
+
 namespace WLC\Views;
 
 use WLC\Core\Enqueue;
 
+/**
+ * Extended index view class.
+ * Home page posts template.
+ */
 class Blog extends Index {
 
 	/**

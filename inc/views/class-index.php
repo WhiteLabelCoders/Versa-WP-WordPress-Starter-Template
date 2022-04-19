@@ -1,18 +1,28 @@
 <?php
+/**
+ * View index class file.
+ *
+ * @package wlc-starter.
+ * @author  Mateusz Major
+ * @link    https://whitelabelcoders.com/
+ */
+
 namespace WLC\Views;
 
-use WLC\Core\Enqueue;
+use WLC\Core\Enqueue_Trait;
 
+/**
+ * Primary view class (index).
+ */
 class Index {
-	use Enqueue;
-
+	use Enqueue_Trait;
 
 	/**
 	 * Integrate with WordPress actions and filters hooks
 	 */
 	public function hooks() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'global_assets' ) );
-		add_action( 'template_redirect', array( $this, 'view_hooks' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'global_assets ' ) );
+		add_action( 'template_redirect', array( $this, 'view_hooks ' ) );
 	}
 
 
@@ -36,10 +46,8 @@ class Index {
 
 
 	/**
-	 * Here you can add hooks only releted with current view.
+	 * Here you can add hooks only related with current view.
 	 */
 	public function view_hooks() {
 	}
-
-
 }

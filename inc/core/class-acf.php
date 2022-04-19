@@ -1,7 +1,7 @@
 <?php
 namespace WLC\Core;
 
-class ACF {
+class Acf {
 
 	/**
 	 * Integrate with WordPress hooks and filters

@@ -2,7 +2,7 @@
 
 namespace WLC\Blocks;
 
-use WLC\Core\AbstractBlock;
+use WLC\Core\Abstract_Block;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Simple block structure and content.
  */
-class SimpleBlock extends AbstractBlock {
+class Simple_Block extends Abstract_Block {
 
 	public function __construct() {
 		parent::__construct();
@@ -138,12 +138,12 @@ class SimpleBlock extends AbstractBlock {
 
 
 	/**
-     * Render frontend template.
-     *
-	 * @param array  $block
-	 * @param string $content
-	 * @param false  $is_preview
-	 * @param int    $post_id
+	 * Render frontend template.
+	 *
+	 * @param array  $block.
+	 * @param string $content.
+	 * @param false  $is_preview.
+	 * @param int    $post_id.
 	 */
 	public function render_frontend( array $block, $content = '', $is_preview = false, $post_id = 0 ) {
 		$content    = get_field( $this->block_name );
