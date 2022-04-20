@@ -23,7 +23,7 @@ class Loop_Posts {
 	 *
 	 * @return int
 	 */
-	public function excerpt_length( $length ){
+	public function excerpt_length( $length ) {
 		return 20;
 	}
 
@@ -35,7 +35,7 @@ class Loop_Posts {
 	public static function set_post_item() {
 		if ( ! is_singular() ) {
 			?>
-				<a class="item item-loop item-<?php echo get_post_type() ?>" href="<?php the_permalink(); ?> ">
+				<a class="item item-loop item-<?php echo esc_html( get_post_type() ); ?>" href="<?php the_permalink(); ?> ">
 				<?php do_action( 'fh_post_item' ); ?>
 				</a>
 			<?php

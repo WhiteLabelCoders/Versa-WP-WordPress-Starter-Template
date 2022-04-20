@@ -29,10 +29,10 @@ class Header {
 			if ( get_theme_mod( 'custom_logo' ) ) {
 				$logo_src = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0];
 				?>
-				<a class="site-header__logo" href="<?php echo home_url(); ?>" title="<?php echo esc_html(get_bloginfo( 'name' )); ?>" rel="home" role="button" tabindex="0">
+				<a class="site-header__logo" href="<?php echo esc_html( home_url() ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home" role="button" tabindex="0">
 					<?php echo inline_svg( $logo_src ); ?>
 				</a>
-			<?php
+				<?php
 			}
 		}
 	}

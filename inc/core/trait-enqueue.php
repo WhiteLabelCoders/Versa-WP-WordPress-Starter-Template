@@ -51,26 +51,30 @@ trait Enqueue_Trait {
 	 * @see https://developer.wordpress.org/reference/hooks/script_loader_tag/
 	 */
 	public function filter_style_loader_tag( $handle, $attributes ) {
-		add_filter( 'style_loader_tag', function( $filter_tag, $filter_handle, $filter_href, $filter_media ) use ( $handle, $attributes ) {
-			if ( $filter_handle === $handle ) {
+		add_filter(
+			'style_loader_tag',
+			function( $filter_tag, $filter_handle, $filter_href, $filter_media ) use ( $handle, $attributes ) {
+				if ( $filter_handle === $handle ) {
 
-				foreach( $attributes as $name => $value ) {
-					if ( is_string( $name ) ) {
-						if ( false === strpos( $filter_tag, $name ) ) {
-							$filter_tag = str_replace( '<link', '<link ' . $name . '=' . $value . '"', $filter_tag );
+					foreach ( $attributes as $name => $value ) {
+						if ( is_string( $name ) ) {
+							if ( false === strpos( $filter_tag, $name ) ) {
+								$filter_tag = str_replace( '<link', '<link ' . $name . '=' . $value . '"', $filter_tag );
+							} else {
+								$filter_tag = preg_replace( '\'' . $name . '=\\\'.*\\\'\'', $name . '=\'' . $value . '\'', $filter_tag );
+							}
 						} else {
-							$filter_tag = preg_replace('\''. $name .'=\\\'.*\\\'\'', $name . '=\''. $value .'\'', $filter_tag );
-						}
-					} else {
-						if ( false === strpos( $filter_tag, $value ) ) {
-							$filter_tag = str_replace( '<link', '<link ' . $value, $filter_tag );
+							if ( false === strpos( $filter_tag, $value ) ) {
+								$filter_tag = str_replace( '<link', '<link ' . $value, $filter_tag );
+							}
 						}
 					}
 				}
-
-			}
-			return $filter_tag;
-		}, 10, 4 );
+				return $filter_tag;
+			},
+			10,
+			4
+		);
 	}
 
 
@@ -122,30 +126,31 @@ trait Enqueue_Trait {
 	 * @see https://developer.wordpress.org/reference/hooks/script_loader_tag/
 	 */
 	public function filter_script_loader_tag( $handle, $attributes ) {
-		add_filter( 'script_loader_tag', function( $filter_tag, $filter_handle ) use ( $handle, $attributes ) {
-			if ( $filter_handle === $handle ) {
+		add_filter(
+			'script_loader_tag',
+			function( $filter_tag, $filter_handle ) use ( $handle, $attributes ) {
+				if ( $filter_handle === $handle ) {
 
-				foreach( $attributes as $name => $value ) {
-					if ( is_string( $name ) ) { // Add attributes name and value pair if non exists already.
-						if ( false === strpos( $filter_tag, $name ) ) {
-							$filter_tag = str_replace( '<script', '<script ' . $name . '="' . $value . '"', $filter_tag );
-						} else {
-							$filter_tag = preg_replace('\''. $name .'=\\\'.*\\\'\'', $name . '=\''. $value .'\'', $filter_tag );
-						}
-					} else { // Add single attribute if already non exists.
-						if ( false === strpos( $filter_tag, $value ) ) {
-							$filter_tag = str_replace( '<script', '<script ' . $value, $filter_tag );
+					foreach ( $attributes as $name => $value ) {
+						if ( is_string( $name ) ) { // Add attributes name and value pair if non exists already.
+							if ( false === strpos( $filter_tag, $name ) ) {
+								$filter_tag = str_replace( '<script', '<script ' . $name . '="' . $value . '"', $filter_tag );
+							} else {
+								$filter_tag = preg_replace( '\'' . $name . '=\\\'.*\\\'\'', $name . '=\'' . $value . '\'', $filter_tag );
+							}
+						} else { // Add single attribute if already non exists.
+							if ( false === strpos( $filter_tag, $value ) ) {
+								$filter_tag = str_replace( '<script', '<script ' . $value, $filter_tag );
+							}
 						}
 					}
+
+					return $filter_tag;
+
 				}
-
-				return $filter_tag;
-
-			}
-		}, 10, 2 );
+			},
+			10,
+			2
+		);
 	}
-
-
-
-
 }

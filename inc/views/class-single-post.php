@@ -56,7 +56,7 @@ class Single_Post extends Index {
 	 * Post title
 	 */
 	public static function post_title() {
-	    the_title( '<h1 class="post__title h2">', '</h1>' );
+		the_title( '<h1 class="post__title h2">', '</h1>' );
 	}
 
 
@@ -94,7 +94,15 @@ class Single_Post extends Index {
 		$time          = ceil( $word_count / 100 );
 		?>
 			<span class="post__details__reading-time">
-				<?php echo esc_html( sprintf( __( 'Reading time: %d min', 'WLC' ), $time ) ); ?>
+				<?php
+				echo esc_html(
+					sprintf(
+						/* translators: %d: reading time in minutes */
+						__( 'Reading time: %d min', 'WLC' ),
+						$time
+					)
+				);
+				?>
 			</span>
 		<?php
 	}

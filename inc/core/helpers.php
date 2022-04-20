@@ -138,7 +138,7 @@ function inline_svg( $url, $class = array() ) {
 			$file_content = wp_remote_retrieve_body( $file );
 			if ( $class ) {
 				if ( strpos( $file_content, 'class=' ) ) {
-					$file_content = preg_replace('\'class=\\\'.*\\\'\'', 'class=\''. implode( ' ', $class ) .'\'', $file_content );
+					$file_content = preg_replace( '\'class=\\\' . *\\\'\'', 'class=\'' . implode( ' ', $class ) . '\'', $file_content );
 				} else {
 					$file_content = str_replace( '<svg', '<svg class="' . implode( ' ', $class ) . '"', $file_content );
 				}

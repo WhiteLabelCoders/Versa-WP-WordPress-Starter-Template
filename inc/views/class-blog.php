@@ -94,6 +94,7 @@ class Blog extends Index {
 				'hide_empty' => true,
 			)
 		);
+
 		$current_category = isset( $_GET['category'] ) ? sanitize_key( $_GET['category'] ) : false;
 
 		if ( $categories ) {

@@ -14,6 +14,4 @@ class Home_Page extends Index {
 	public function view_hooks() {
 
 	}
-
-
 }

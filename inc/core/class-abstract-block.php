@@ -161,6 +161,7 @@ abstract class Abstract_Block {
 	 * Enqueue js and css files for this block.
 	 *
 	 * You can use within one of these:
+	 *
 	 * @uses WLC\Core\Enqueue\enqueue_style()
 	 * @uses WLC\Core\Enqueue\enqueue_script()
 	 * @uses wp_enqueue_script()
@@ -188,10 +189,10 @@ abstract class Abstract_Block {
 	 */
 	public function render_frontend_file( array $block, $content = '', $is_preview = false, $post_id = 0 ) {
 
-		$content    = get_field( $this->block_name );
-		$data       = explode( '_', $block['id'] )[1];
-		$id         = isset( $block['anchor'] ) ?? $data;
-		$class      = $this->get_block_class( $block );
+		$content = get_field( $this->block_name );
+		$data    = explode( '_', $block['id'] )[1];
+		$id      = isset( $block['anchor'] ) ?? $data;
+		$class   = $this->get_block_class( $block );
 
 		include get_template_directory() . '/template-parts/blocks/' . $this->block_name . '.php';
 	}

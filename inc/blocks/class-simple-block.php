@@ -150,16 +150,16 @@ class Simple_Block extends Abstract_Block {
 	/**
 	 * Render frontend template.
 	 *
-	 * @param array  $block.
-	 * @param string $content.
-	 * @param false  $is_preview.
-	 * @param int    $post_id.
+	 * @param array  $block block.
+	 * @param string $content content.
+	 * @param false  $is_preview preview switch.
+	 * @param int    $post_id ID post.
 	 */
 	public function render_frontend( array $block, $content = '', $is_preview = false, $post_id = 0 ) {
-		$content    = get_field( $this->block_name );
-		$data       = explode( '_', $block['id'] )[1];
-		$id         = isset( $block['anchor'] ) ?? $data;
-		$class      = $this->get_block_class( $block );
+		$content = get_field( $this->block_name );
+		$data    = explode( '_', $block['id'] )[1];
+		$id      = isset( $block['anchor'] ) ?? $data;
+		$class   = $this->get_block_class( $block );
 
 		?>
 		<section id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
