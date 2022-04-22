@@ -11,20 +11,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 };
 
-require_once __DIR__ . '/inc/Core/Helpers.php';
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/inc/core/autoloader.php';
+require_once __DIR__ . '/inc/core/helpers.php';
 
 $setup = new WLC\Core\Theme();
 $setup->hooks();
 $setup->class_loader(
 	array(
-		'WLC\Blocks\SimpleBlock',
+		'WLC\Blocks\Simple_Block',
 		'WLC\Components\Header',
 		'WLC\Components\Footer',
-		'WLC\Components\LoopPosts',
+		'WLC\Components\Loop_Posts',
 		'WLC\Views\Page',
 		'WLC\Views\Blog',
-		'WLC\Views\SinglePost',
-		'WLC\Views\HomePage',
+		'WLC\Views\Single_Post',
+		'WLC\Views\Home_Page',
 	)
 );

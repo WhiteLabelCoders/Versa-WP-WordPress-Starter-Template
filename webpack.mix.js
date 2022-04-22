@@ -25,8 +25,7 @@ mix.options({
   ],
   // set uglify to false in order to prevent production minification
   // it prevents mix from pushing UglifyJSPlugin into the webpack config
-  uglify: false,
-
+  uglify: false
 });
 mix.webpackConfig({
   plugins: [
@@ -74,8 +73,8 @@ mix.webpackConfig({
       },
     }),
   ],
-  watchOptions: { 
-    ignored: /node_modules/ 
+  watchOptions: {
+    ignored: /node_modules/
   }
 });
 

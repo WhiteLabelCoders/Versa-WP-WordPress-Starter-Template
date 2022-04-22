@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 /**
  * Default page template
  * This template is based on Genesis Theme hooks,
