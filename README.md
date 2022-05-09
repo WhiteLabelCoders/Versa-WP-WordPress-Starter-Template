@@ -1,81 +1,51 @@
 # WLC Starter Theme
 
 
-
-### Features
+### Cechy
 
 - PHP OOP,
-- Autoloading, namespaces through composer,
-- Bedrock support (not necessary),
-- WordPress coding standards,
-- Gulp
+- Przestrzeń nazw z automatycznym ładowaniem przy pomocy spl_autoload_register.
+- Kompatybilność z Bedrock (nie wymagane),
+- Zachowane standardy kodowania WordPress,
+- Metodologia View/class, block/class,
+- Obsługa zdefiniowanych pól ACF local JSON,
+- Kompilacja plików z wykorzystaniem Webpack (laravelmix),
+- Obsługa własnego grid’a (kompatybilna z Bootstrap 5),
+- Style reset z Bootstrap 5,
+- Pełna kompatybilność z Bootstrap 5 (nie wymagane),
+- Pomocny zbiór mixin,
+- Predefiniowane pola tekstowe ACF dla `<head>`, `<body>`, `<footer>` do obsługi własnego kodu,
+- Obsługa własnych styli dla edytora po stronie panelu admina z wykorzystaniem theme.json,
+- Obsługa inline SVG,
 
-|                  | Development /app                             | Production /dist                 |
-| ---------------- | -------------------------------------------- | -------------------------------- |
-| **SASS** /scss   | sourcemap                                    | sourcemap, minify, autoprefixer  |
-| **JS** /js       | -                                            | minify                           |
-| **images** / img | -                                            | webp conversion                  |
-| **svg** /svg     | -                                            | viewbox and id's removal, minify |
-| **Browsersync**  | style injection, refresh on html, php change |                                  |
 
-- built-in WordPress svg support,
+### Instalacja
 
-- view/class, block/class methodology,
-
-  
-
-### Installation
-
-1. After cloning repository with theme, run command within it's directory
-   `composer install`
-
-2. Install node with command
-   `npm install`
-
-3. Go to file gulpfile.js and change url_address variable to your local url 
-   `var url_address = 'http://local-address/';`
-
-4. In terminal/console type `gulp watch` to start browser sync
-
+1. W folderze themes pobierz to repozytorium zamieniając nazwę “starter” na adekwatną do projektu.<br><br>
+   Z wykorzystaniem SSH:<br>
+   `git clone git@gitlab.3a.pl:3a-pl/wlcstarter-new.git starter`<br><br>
+   lub przez HTTPS:<br>
+   `https://gitlab.3a.pl/3a-pl/wlcstarter-new.git starter`<br><br>
+2. W oknie terminala wykonaj:<br>
+   `npm install` lub `yarn install`<br><br>
+3. Skopiuj plik .env.dist do .env i uzupełnij APP_URL np.:<br>
+   `APP_URL = starterdemo.local`<br><br>
+   Nazwa ta powinna być taka jak ta pod którą masz dostęp do strony.
    
 
-### Basics
+### Standardy kodowania
 
-- Remeber to add newly created class to `class_loader()` > functions.php
-
-- There is hooks visual guide > WLC Starter Hooks.html
-
-- Register menus, widget areas > inc/Core/Theme.php
-
-  
-
-### Using views
-
-`inc/Views/Index` class, add any method required by page globally, like for e.g. enqueue assets.
-
-Any other class is `Index` extension.
-
-Use `hooks` method, for higher level hooks, like for e.g. init, wp_ajax.
-
-`view_hooks` method should be used for content methods , like e.g. title, content, related posts.
-
-You can limit content methods for speccyfic views
-
-```
-public function view_hooks() {
-	if ( is_home() ) {
-		...
-	}
-}
-```
+Motyw wykorzystuje standardy kodowania [WordPress.](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/)
 
 
+### Development
 
-### Using blocks 
+1. W pliku **wp-config.php** ustaw `define( 'WP_DEBUG', true );`
+2. Przejdź do terminala i użyj `npm run watch` lub `yarn watch` . Od tej pory pod adresem http://localhost:3000 oraz tym zdefiniowanym w APP_URL z wywołaniem po porcie 3000 będzie dostępna strona gotowa do developmentu np. http://starterdemo.local:3000 z automatycznym przeładowaniem podczas wprowadzania zmian. W oknie terminala zobaczysz również adres pod którym będąc w obrębie swojej sieci wywołasz stronę np. na urządzeniu mobilnym.<br><br>
+   **UWAGA:** Pamiętaj aby przed wysłaniem zmian do repozytorium użyć
+   `npm run production` lub `yarn production` aby pliki scss, js zostały zminifikowane.
 
-1. Copy inc/Blocks/BlockFAQ and rename it using cammel case format.
-2. Set block param within `register_block_type()` method.
-3. Add to ACF new filds group for your block. 
-4. Add Group type field and name it same as your file, but using snake format (block_faq).
-5. Create output inside `render_frontend()` method, do not remove variables within this method.
+### Dokumentacja
+
+Link do pełnej [dokumentacji](https://docs.google.com/document/d/1TYpTeMU-V67PKi8fy2ZemU0XxvyzvWPnUOrnf0oSmdA/edit#heading=h.xcdt47m59fxk)
 
