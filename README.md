@@ -23,9 +23,9 @@
 
 1. W folderze themes pobierz to repozytorium zamieniając nazwę “starter” na adekwatną do projektu.<br><br>
    Z wykorzystaniem SSH:<br>
-   `git clone git@gitlab.3a.pl:3a-pl/wlcstarter-new.git starter`<br><br>
+   `git clone git@github.com:WhiteLabelCoders/wlc-starter.git starter`<br><br>
    lub przez HTTPS:<br>
-   `https://gitlab.3a.pl/3a-pl/wlcstarter-new.git starter`<br><br>
+   `git clone https://github.com/WhiteLabelCoders/wlc-starter.git starter`<br><br>
 2. W oknie terminala wykonaj:<br>
    `npm install` lub `yarn install`<br><br>
 3. Skopiuj plik .env.dist do .env i uzupełnij APP_URL np.:<br>
