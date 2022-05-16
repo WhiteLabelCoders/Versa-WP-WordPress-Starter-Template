@@ -45,7 +45,7 @@ Motyw wykorzystuje standardy kodowania [WordPress.](https://developer.wordpress.
    **UWAGA:** Pamiętaj aby przed wysłaniem zmian do repozytorium użyć
    `npm run production` lub `yarn production` aby pliki scss, js zostały zminifikowane.
 
-### Dokumentacja
+### Dodatkowe informacje
 
-Link do pełnej [dokumentacji](https://docs.google.com/document/d/1TYpTeMU-V67PKi8fy2ZemU0XxvyzvWPnUOrnf0oSmdA/edit#heading=h.xcdt47m59fxk)
+WLC Starter Theme bazuje na starterze https://github.com/frontendhouse/fh_starter_theme
 
