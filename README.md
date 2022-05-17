@@ -47,5 +47,7 @@ Motyw wykorzystuje standardy kodowania [WordPress.](https://developer.wordpress.
 
 ### Dodatkowe informacje
 
-WLC Starter Theme bazuje na starterze https://github.com/frontendhouse/fh_starter_theme
+Aktualna wersja startera bazowego - https://github.com/frontendhouse/fh_starter_theme
+<br>
+Zamrożona wersja na której powstał starter WLC - https://github.com/WhiteLabelCoders/wlc-starter-source
 
