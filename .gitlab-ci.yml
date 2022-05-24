@@ -8,4 +8,3 @@ lint:
     - docker
   script:
     - "phpcs --encoding=UTF8 --standard=WordPress-Core --extensions=php ."
-
