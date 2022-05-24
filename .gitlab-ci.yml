@@ -3,7 +3,7 @@ stages:
 
 lint:
   stage: lint
-  image: registry.gitlab.3a.pl/3a-pl/phpqa:php7.2
+  image: registry.gitlab.wlc.team/3a-pl/phpqa:php7.2
   tags:
     - docker
   script:
