@@ -39,13 +39,14 @@ class Theme {
 		add_theme_support( 'widgets' );
 		add_theme_support( 'widgets-block-editor' );
 		add_theme_support( 'woocommerce' );
-		add_theme_support( 'html5',
+		add_theme_support(
+			'html5',
 			array(
 				'search-form',
 				'comment-form',
 				'comment-list',
 				'gallery',
-				'caption'
+				'caption',
 			)
 		);
 	}
