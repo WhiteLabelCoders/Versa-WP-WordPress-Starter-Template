@@ -27,7 +27,9 @@ class Page extends Index {
 	 * Page title.
 	 */
 	public static function page_title() {
-		the_title( '<h1 class="site-title">', '</h1>' );
+		if ( ! is_front_page() && ! is_home() ) {
+			the_title( '<h1 class="site-title">', '</h1>' );
+		}
 	}
 
 	/**

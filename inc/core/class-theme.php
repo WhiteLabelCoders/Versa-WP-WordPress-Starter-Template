@@ -32,7 +32,6 @@ class Theme {
 		add_theme_support( 'editor-gradient-presets' );
 		add_theme_support( 'editor-styles' );
 		add_theme_support( 'featured-content' );
-		add_theme_support( 'html5' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'responsive-embeds' );
 		add_theme_support( 'title-tag' );
@@ -40,6 +39,16 @@ class Theme {
 		add_theme_support( 'widgets' );
 		add_theme_support( 'widgets-block-editor' );
 		add_theme_support( 'woocommerce' );
+		add_theme_support(
+			'html5',
+			array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			)
+		);
 	}
 
 

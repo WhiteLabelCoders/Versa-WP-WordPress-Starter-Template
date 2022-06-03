@@ -41,7 +41,6 @@ class Index {
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			)
 		);
-		$this->filter_script_loader_tag( 'global', array( 'async' => false ) );
 	}
 
 
