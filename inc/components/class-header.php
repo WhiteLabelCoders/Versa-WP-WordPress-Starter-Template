@@ -7,17 +7,28 @@ class Header {
 	 * Integrate hooks with WordPress.
 	 */
 	public function hooks() {
+		add_action( 'wlc_header', array( get_class( $this ), 'header_wrapper_open' ), 2 );
 		add_action( 'wlc_header', array( get_class( $this ), 'logo' ), 7 );
 		add_action( 'wlc_header', array( get_class( $this ), 'primary_menu' ), 9 );
 		add_action( 'wlc_header', array( get_class( $this ), 'actions_wrapper' ), 11 );
+		add_action( 'wlc_header', array( get_class( $this ), 'header_wrapper_close' ), 20 );
 	}
 
 	/**
-	 * Add header wrapper for logo, menu and actions buttons
+	 * Add header wrapper for logo, menu and actions buttons - open tag
 	 */
 	public static function header_wrapper_open() {
 		?>
 			<div class="container">
+		<?php
+	}
+
+	/**
+	 * Add header wrapper for logo, menu and actions buttons - close tag
+	 */
+	public static function header_wrapper_close() {
+		?>
+			</div>
 		<?php
 	}
 
@@ -56,7 +67,7 @@ class Header {
 	public static function actions_wrapper() {
 		?>
 		<div class="site-header__actions">
-			<?php do_action( 'il_header_actions' ); ?>
+			<?php do_action( 'wlc_header_actions' ); ?>
 		</div>
 		<?php
 	}
