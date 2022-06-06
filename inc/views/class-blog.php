@@ -122,7 +122,7 @@ class Blog extends Index {
 	 */
 	public static function open_container() {
 		?>
-		<div class="blog-grid alignwide">
+		<div class="container">
 		<?php
 	}
 
@@ -172,6 +172,11 @@ class Blog extends Index {
 	 * Display single post within the loop from template file
 	 */
 	public static function loop_entry() {
-		get_template_part( 'template-parts/blog/loop-entry' );
+		?>
+		<article>
+			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			<div><?php the_excerpt(); ?></div>
+		</article>
+		<?php
 	}
 }
