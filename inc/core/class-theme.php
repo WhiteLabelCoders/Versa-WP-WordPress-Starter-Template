@@ -14,7 +14,7 @@ class Theme {
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 		add_action( 'acf/init', array( $this, 'theme_settings' ) );
 		add_filter( 'wpcf7_autop_or_not', '__return_false' ); // Remove Contact Form 7 paragraph wrappers.
-		add_action( 'block_categories', array( $this, 'theme_block_category' ), 10, 2 );
+		add_action( 'block_categories_all', array( $this, 'theme_block_category' ), 10, 2 );
 		add_action( 'init', array( new Woo_Commerce(), 'hooks' ) );
 	}
 
@@ -114,7 +114,7 @@ class Theme {
 			$categories,
 			array(
 				array(
-					'slug'  => 'WLC',
+					'slug'  => 'wlc',
 					'title' => __( 'White Label Coders', 'WLC' ),
 				),
 			)

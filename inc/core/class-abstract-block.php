@@ -67,9 +67,23 @@ abstract class Abstract_Block {
 	 * Construct
 	 */
 	public function __construct() {
-		$this->block_name = $this->get_block_name( get_class( $this ) );
+		$this->block_kebab_name = $this->get_block_kebab_name( get_class( $this ) );
+		$this->block_snake_name = $this->get_block_snake_name( get_class( $this ) );
 		$this->hooks();
 		$this->add_local_field_group();
+	}
+
+
+
+	/**
+	 * Get block name in kebab format.
+	 *
+	 * @param  string $class_name .
+	 * @return string .
+	 */
+	public function get_block_kebab_name( string $class_name ): string {
+		$name = explode( '\\', $class_name );
+		return strtolower( preg_replace( '/_/', '-', array_pop( $name ) ) );
 	}
 
 
@@ -80,9 +94,9 @@ abstract class Abstract_Block {
 	 * @param  string $class_name .
 	 * @return string .
 	 */
-	public function get_block_name( string $class_name ): string {
+	public function get_block_snake_name( string $class_name ): string {
 		$name = explode( '\\', $class_name );
-		return strtolower( preg_replace( '/_/', '-', array_pop( $name ) ) );
+		return array_pop( $name );
 	}
 
 
@@ -102,7 +116,7 @@ abstract class Abstract_Block {
 	public function register_block_type() {
 		if ( function_exists( 'acf_register_block_type' ) ) {
 			$block = array(
-				'name'           => $this->block_name,
+				'name'           => $this->block_snake_name,
 				'title'          => $this->title,
 				'description'    => $this->description,
 				'keywords'       => '',
@@ -117,7 +131,7 @@ abstract class Abstract_Block {
 				'enqueue_assets' => array( $this, 'enqueue_assets' ),
 			);
 
-			if ( file_exists( get_template_directory() . '/template-parts/blocks/' . $this->block_name . '.php' ) ) {
+			if ( file_exists( get_template_directory() . '/template-parts/blocks/' . $this->block_kebab_name . '.php' ) ) {
 				$block['render_callback'] = array( $this, 'render_frontend_file' );
 			} else {
 				$block['render_callback'] = array( $this, 'render_frontend' );
@@ -139,7 +153,7 @@ abstract class Abstract_Block {
 	 */
 	public function get_block_class( $block, array $additional_classes = array() ) : string {
 		$class_array[] = 'block';
-		$class_array[] = $this->block_name;
+		$class_array[] = $this->block_kebab_name;
 		$class_array[] = isset( $block['align'] ) ? 'align' . $block['align'] : '';
 		$class_array[] = isset( $block['className'] ) ? $block['className'] : '';
 		if ( $additional_classes ) {
@@ -189,12 +203,12 @@ abstract class Abstract_Block {
 	 */
 	public function render_frontend_file( array $block, $content = '', $is_preview = false, $post_id = 0 ) {
 
-		$content = get_field( $this->block_name );
+		$content = get_field( $this->block_snake_name );
 		$data    = explode( '_', $block['id'] )[1];
 		$id      = isset( $block['anchor'] ) ?? $data;
 		$class   = $this->get_block_class( $block );
 
-		include get_template_directory() . '/template-parts/blocks/' . $this->block_name . '.php';
+		include get_template_directory() . '/template-parts/blocks/' . $this->block_kebab_name . '.php';
 	}
 
 
