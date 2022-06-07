@@ -13,9 +13,16 @@ abstract class Abstract_Block {
 	/**
 	 * A unique name (slug) that identifies the block.
 	 *
-	 * @var string $block_name  A block name can only contain lowercase alphanumeric characters and dashes, and must begin with a letter.
+	 * @var string $block_snake_name  A block name can only contain lowercase alphanumeric characters and dashes, and must begin with a letter.
 	 */
-	public $block_name;
+	public $block_snake_name;
+
+	/**
+	 * A unique kebab block name.
+	 *
+	 * @var string $block_kebab_name  A block name.
+	 */
+	public $block_kebab_name;
 
 	/**
 	 * Title.
@@ -96,7 +103,7 @@ abstract class Abstract_Block {
 	 */
 	public function get_block_snake_name( string $class_name ): string {
 		$name = explode( '\\', $class_name );
-		return array_pop( $name );
+		return strtolower( array_pop( $name ) );
 	}
 
 

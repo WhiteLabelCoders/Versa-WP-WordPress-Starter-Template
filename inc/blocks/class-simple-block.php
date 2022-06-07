@@ -156,7 +156,7 @@ class Simple_Block extends Abstract_Block {
 	 * @param int    $post_id ID post.
 	 */
 	public function render_frontend( array $block, $content = '', $is_preview = false, $post_id = 0 ) {
-		$content = get_field( $this->block_name );
+		$content = get_field( $this->block_snake_name );
 		$data    = explode( '_', $block['id'] )[1];
 		$id      = isset( $block['anchor'] ) ?? $data;
 		$class   = $this->get_block_class( $block );
