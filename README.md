@@ -1,51 +1,41 @@
-# WLC Starter Theme
+# Website
 
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-### Cechy
+### Installation
 
-- PHP OOP,
-- Przestrzeń nazw z automatycznym ładowaniem przy pomocy spl_autoload_register.
-- Kompatybilność z Bedrock (nie wymagane),
-- Zachowane standardy kodowania WordPress,
-- Metodologia View/class, block/class,
-- Obsługa zdefiniowanych pól ACF local JSON,
-- Kompilacja plików z wykorzystaniem Webpack (laravelmix),
-- Obsługa własnego grid’a (kompatybilna z Bootstrap 5),
-- Style reset z Bootstrap 5,
-- Pełna kompatybilność z Bootstrap 5 (nie wymagane),
-- Pomocny zbiór mixin,
-- Predefiniowane pola tekstowe ACF dla `<head>`, `<body>`, `<footer>` do obsługi własnego kodu,
-- Obsługa własnych styli dla edytora po stronie panelu admina z wykorzystaniem theme.json,
-- Obsługa inline SVG,
+```
+$ yarn
+```
 
+### Local Development
 
-### Instalacja
+```
+$ yarn start
+```
 
-1. W folderze themes pobierz to repozytorium zamieniając nazwę “starter” na adekwatną do projektu.<br><br>
-   Z wykorzystaniem SSH:<br>
-   `git clone git@gitlab.3a.pl:3a-pl/wlcstarter-new.git starter`<br><br>
-   lub przez HTTPS:<br>
-   `https://gitlab.3a.pl/3a-pl/wlcstarter-new.git starter`<br><br>
-2. W oknie terminala wykonaj:<br>
-   `npm install` lub `yarn install`<br><br>
-3. Skopiuj plik .env.dist do .env i uzupełnij APP_URL np.:<br>
-   `APP_URL = starterdemo.local`<br><br>
-   Nazwa ta powinna być taka jak ta pod którą masz dostęp do strony.
-   
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Standardy kodowania
+### Build
 
-Motyw wykorzystuje standardy kodowania [WordPress.](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/)
+```
+$ yarn build
+```
 
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Development
+### Deployment
 
-1. W pliku **wp-config.php** ustaw `define( 'WP_DEBUG', true );`
-2. Przejdź do terminala i użyj `npm run watch` lub `yarn watch` . Od tej pory pod adresem http://localhost:3000 oraz tym zdefiniowanym w APP_URL z wywołaniem po porcie 3000 będzie dostępna strona gotowa do developmentu np. http://starterdemo.local:3000 z automatycznym przeładowaniem podczas wprowadzania zmian. W oknie terminala zobaczysz również adres pod którym będąc w obrębie swojej sieci wywołasz stronę np. na urządzeniu mobilnym.<br><br>
-   **UWAGA:** Pamiętaj aby przed wysłaniem zmian do repozytorium użyć
-   `npm run production` lub `yarn production` aby pliki scss, js zostały zminifikowane.
+Using SSH:
 
-### Dokumentacja
+```
+$ USE_SSH=true yarn deploy
+```
 
-Link do pełnej [dokumentacji](https://docs.google.com/document/d/1TYpTeMU-V67PKi8fy2ZemU0XxvyzvWPnUOrnf0oSmdA/edit#heading=h.xcdt47m59fxk)
+Not using SSH:
 
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

@@ -1,0 +1,27 @@
+{
+  "unversionedId": "views-for-pages",
+  "id": "views-for-pages",
+  "title": "Widoki dla stron",
+  "description": "Widoki dla stron, (postst, page, custom-post-type...) definiujemy w katalogu views/ tworząc odpowiednią klasę w pliku",
+  "source": "@site/docs/views-for-pages.md",
+  "sourceDirName": ".",
+  "slug": "/views-for-pages",
+  "permalink": "/views-for-pages",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/views-for-pages.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 8,
+  "frontMatter": {
+    "sidebar_position": 8
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Definiowanie bloków gutenberg",
+    "permalink": "/gutenberg-blocks"
+  },
+  "next": {
+    "title": "Tutorial - Basics",
+    "permalink": "/category/tutorial---basics"
+  }
+}

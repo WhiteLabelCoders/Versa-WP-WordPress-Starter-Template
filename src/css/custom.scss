@@ -1,0 +1,33 @@
+:root {
+    --ifm-navbar-background-color: #c6002b;
+    --ifm-menu-color-active: #000;
+    --ifm-footer-background-color: #c6002b;
+    --ifm-footer-title-color: #fff;
+    --ifm-footer-link-color: rgba(255, 255, 255, 0.7);
+    --ifm-footer-link-hover-color: rgba(255, 255, 255, 0.5);
+    --ifm-footer-color: #fff;
+    --ifm-color-primary: #c6002b;
+}
+
+// Navbar
+.navbar__logo {
+    height: 2.5rem;
+}
+
+.navbar__link {
+    color: #ffffff;
+
+    &:hover {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.navbar__items {
+    .clean-btn {
+        color: #ffffff;
+
+        &:hover {
+            background-color:rgba(255, 255, 255, 0.5);
+        }
+    }
+}

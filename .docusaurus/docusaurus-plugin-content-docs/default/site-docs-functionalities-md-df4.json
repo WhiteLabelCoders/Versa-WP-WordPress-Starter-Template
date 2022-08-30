@@ -1,0 +1,27 @@
+{
+  "unversionedId": "functionalities",
+  "id": "functionalities",
+  "title": "Funkcjonalności",
+  "description": "Opis funkcjonalności na podstawie plików styli.",
+  "source": "@site/docs/functionalities.md",
+  "sourceDirName": ".",
+  "slug": "/functionalities",
+  "permalink": "/functionalities",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/functionalities.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Pliki i foldery",
+    "permalink": "/files-and-folders"
+  },
+  "next": {
+    "title": "Hooki motywu",
+    "permalink": "/theme-hooks"
+  }
+}
