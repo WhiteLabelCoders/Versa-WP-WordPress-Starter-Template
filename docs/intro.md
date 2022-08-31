@@ -58,6 +58,12 @@ Dokumentacja ** WLC Starter **. Wersja angielska w przygotowaniu.
 
 Motyw wykorzystuje standardy kodowania [WordPress](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
 
+W celu zachowania kontroli wcięc dla różnych typów plików korzystamy z [pliku konfiguracyjny](https://editorconfig.org/) ```.editorconfig```.<br/>
+Do obsługi tego pliku i zawartej w nim konfiguracji należy zainstalować opdowiedna wtyczkę:
+
+[VSCode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)<br/>
+[PHPStorm](https://plugins.jetbrains.com/plugin/7294-editorconfig)
+
 ## Development
 1. W pliku ```wp-config.php``` ustaw
 

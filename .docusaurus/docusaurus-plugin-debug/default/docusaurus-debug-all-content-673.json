@@ -8,8 +8,8 @@
           "banner": null,
           "badge": false,
           "className": "docs-version-current",
-          "path": "/",
-          "tagsPath": "/tags",
+          "path": "/wlc-starter/",
+          "tagsPath": "/wlc-starter/tags",
           "isLast": true,
           "routePriority": -1,
           "sidebarFilePath": "/Users/mjedrusik/Local Sites/wlcstartersource/app/public/wp-content/themes/wlcstarter/sidebars.js",
@@ -24,7 +24,7 @@
               "source": "@site/docs/files-and-folders.md",
               "sourceDirName": ".",
               "slug": "/files-and-folders",
-              "permalink": "/files-and-folders",
+              "permalink": "/wlc-starter/files-and-folders",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -35,11 +35,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Informacje ogólne",
-                "permalink": "/"
+                "permalink": "/wlc-starter/"
               },
               "next": {
                 "title": "Funkcjonalności",
-                "permalink": "/functionalities"
+                "permalink": "/wlc-starter/functionalities"
               }
             },
             {
@@ -50,7 +50,7 @@
               "source": "@site/docs/functionalities.md",
               "sourceDirName": ".",
               "slug": "/functionalities",
-              "permalink": "/functionalities",
+              "permalink": "/wlc-starter/functionalities",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -61,11 +61,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Pliki i foldery",
-                "permalink": "/files-and-folders"
+                "permalink": "/wlc-starter/files-and-folders"
               },
               "next": {
                 "title": "Hooki motywu",
-                "permalink": "/theme-hooks"
+                "permalink": "/wlc-starter/theme-hooks"
               }
             },
             {
@@ -76,7 +76,7 @@
               "source": "@site/docs/gutenberg-blocks.md",
               "sourceDirName": ".",
               "slug": "/gutenberg-blocks",
-              "permalink": "/gutenberg-blocks",
+              "permalink": "/wlc-starter/gutenberg-blocks",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -87,11 +87,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "View/class, block/class",
-                "permalink": "/view-class-block-class"
+                "permalink": "/wlc-starter/view-class-block-class"
               },
               "next": {
                 "title": "Widoki dla stron",
-                "permalink": "/views-for-pages"
+                "permalink": "/wlc-starter/views-for-pages"
               }
             },
             {
@@ -102,7 +102,7 @@
               "source": "@site/docs/intro.md",
               "sourceDirName": ".",
               "slug": "/",
-              "permalink": "/",
+              "permalink": "/wlc-starter/",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -114,7 +114,7 @@
               "sidebar": "tutorialSidebar",
               "next": {
                 "title": "Pliki i foldery",
-                "permalink": "/files-and-folders"
+                "permalink": "/wlc-starter/files-and-folders"
               }
             },
             {
@@ -125,7 +125,7 @@
               "source": "@site/docs/loading-block-classes-and-views.md",
               "sourceDirName": ".",
               "slug": "/loading-block-classes-and-views",
-              "permalink": "/loading-block-classes-and-views",
+              "permalink": "/wlc-starter/loading-block-classes-and-views",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -136,11 +136,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Hooki motywu",
-                "permalink": "/theme-hooks"
+                "permalink": "/wlc-starter/theme-hooks"
               },
               "next": {
                 "title": "View/class, block/class",
-                "permalink": "/view-class-block-class"
+                "permalink": "/wlc-starter/view-class-block-class"
               }
             },
             {
@@ -151,7 +151,7 @@
               "source": "@site/docs/theme-hooks.md",
               "sourceDirName": ".",
               "slug": "/theme-hooks",
-              "permalink": "/theme-hooks",
+              "permalink": "/wlc-starter/theme-hooks",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -162,11 +162,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Funkcjonalności",
-                "permalink": "/functionalities"
+                "permalink": "/wlc-starter/functionalities"
               },
               "next": {
                 "title": "Ładowanie klas bloków i widoków",
-                "permalink": "/loading-block-classes-and-views"
+                "permalink": "/wlc-starter/loading-block-classes-and-views"
               }
             },
             {
@@ -177,7 +177,7 @@
               "source": "@site/docs/view-class-block-class.md",
               "sourceDirName": ".",
               "slug": "/view-class-block-class",
-              "permalink": "/view-class-block-class",
+              "permalink": "/wlc-starter/view-class-block-class",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -188,11 +188,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Ładowanie klas bloków i widoków",
-                "permalink": "/loading-block-classes-and-views"
+                "permalink": "/wlc-starter/loading-block-classes-and-views"
               },
               "next": {
                 "title": "Definiowanie bloków gutenberg",
-                "permalink": "/gutenberg-blocks"
+                "permalink": "/wlc-starter/gutenberg-blocks"
               }
             },
             {
@@ -203,7 +203,7 @@
               "source": "@site/docs/views-for-pages.md",
               "sourceDirName": ".",
               "slug": "/views-for-pages",
-              "permalink": "/views-for-pages",
+              "permalink": "/wlc-starter/views-for-pages",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -214,7 +214,7 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Definiowanie bloków gutenberg",
-                "permalink": "/gutenberg-blocks"
+                "permalink": "/wlc-starter/gutenberg-blocks"
               }
             }
           ],
@@ -263,7 +263,7 @@
     "default": [
       {
         "type": "mdx",
-        "permalink": "/markdown-page",
+        "permalink": "/wlc-starter/markdown-page",
         "source": "@site/src/pages/markdown-page.md",
         "title": "Markdown page example",
         "description": "You don't need React to write simple standalone pages.",
