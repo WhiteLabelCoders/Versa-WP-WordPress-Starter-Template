@@ -5,9 +5,7 @@ sidebar_position: 6
 # View/class, block/class
 Standardowo podczas ładowania klas po zainicjalizowaniu obiektu odpalana jest metoda hooks() i jeśli istnieje metoda init().
 
-** File: .../wlc-starter-demo/inc/core/class-theme.php **
-
-```php
+```php title="File: .../wlc-starter-demo/inc/core/class-theme.php"
 /**
  * Class loaderclass=
  */

@@ -55,7 +55,9 @@ Tutaj dodajesz swoje zmienne dla :root{}
 
 ## /assets/scss/_bootstrap.scss
 
-** UWAGA: Ten plik jest używany tylko do importowania komponentów Bootstrap 5. **
+:::caution UWAGA
+Ten plik jest używany tylko do importowania komponentów Bootstrap 5.
+:::
 
 ## /assets/scss/_base.scss
 

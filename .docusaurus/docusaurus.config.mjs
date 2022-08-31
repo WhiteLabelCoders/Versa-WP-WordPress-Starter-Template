@@ -5,14 +5,14 @@
  */
 export default {
   "title": "WLC Starter - Documentation",
-  "tagline": "Dinosaurs are cool",
-  "url": "https://your-docusaurus-test-site.com",
+  "tagline": "Wordpress WLC starter documentation",
+  "url": "https://whitelabelcoders.com/",
   "baseUrl": "/",
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
-  "favicon": "img/favicon.ico",
-  "organizationName": "facebook",
-  "projectName": "docusaurus",
+  "favicon": "img/favicon.png",
+  "organizationName": "WhiteLabelCoders",
+  "projectName": "wlc-starter",
   "i18n": {
     "defaultLocale": "pl",
     "locales": [
@@ -27,8 +27,7 @@ export default {
       {
         "docs": {
           "routeBasePath": "/",
-          "sidebarPath": "/Users/mjedrusik/Local Sites/wlcstartersource/app/public/wp-content/themes/wlcstarter/sidebars.js",
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
+          "sidebarPath": "/Users/mjedrusik/Local Sites/wlcstartersource/app/public/wp-content/themes/wlcstarter/sidebars.js"
         },
         "blog": false,
         "theme": {
@@ -49,7 +48,7 @@ export default {
       },
       "items": [
         {
-          "href": "https://github.com/facebook/docusaurus",
+          "href": "https://github.com/WhiteLabelCoders/wlc-starter",
           "label": "GitHub",
           "position": "right"
         }
@@ -58,44 +57,8 @@ export default {
     },
     "footer": {
       "style": "light",
-      "links": [
-        {
-          "title": "Docs",
-          "items": [
-            {
-              "label": "Tutorial",
-              "to": "/"
-            }
-          ]
-        },
-        {
-          "title": "Community",
-          "items": [
-            {
-              "label": "Stack Overflow",
-              "href": "https://stackoverflow.com/questions/tagged/docusaurus"
-            },
-            {
-              "label": "Discord",
-              "href": "https://discordapp.com/invite/docusaurus"
-            },
-            {
-              "label": "Twitter",
-              "href": "https://twitter.com/docusaurus"
-            }
-          ]
-        },
-        {
-          "title": "More",
-          "items": [
-            {
-              "label": "GitHub",
-              "href": "https://github.com/facebook/docusaurus"
-            }
-          ]
-        }
-      ],
-      "copyright": "Copyright © 2022 My Project, Inc. Built with Docusaurus."
+      "copyright": "Copyright © 2022 WhiteLabelCoders, Inc. Built with Docusaurus.",
+      "links": []
     },
     "prism": {
       "theme": {
@@ -289,7 +252,9 @@ export default {
           }
         ]
       },
-      "additionalLanguages": [],
+      "additionalLanguages": [
+        "php"
+      ],
       "magicComments": [
         {
           "className": "theme-code-block-highlighted-line",

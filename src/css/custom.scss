@@ -1,5 +1,7 @@
 :root {
     --ifm-navbar-background-color: #c6002b;
+    --ifm-navbar-link-color: #fff;
+    --ifm-navbar-link-hover-color: rgba(255, 255, 255, 0.7);
     --ifm-menu-color-active: #000;
     --ifm-footer-background-color: #c6002b;
     --ifm-footer-title-color: #fff;
@@ -9,19 +11,18 @@
     --ifm-color-primary: #c6002b;
 }
 
-// Navbar
-.navbar__logo {
-    height: 2.5rem;
-}
+// Dark Theme
+html[data-theme="dark"] {
+    .menu__link--active {
+        color: #fff;
 
-.navbar__link {
-    color: #ffffff;
-
-    &:hover {
-        color: rgba(255, 255, 255, 0.7);
+        &:not(.menu__link--sublist) {
+            background-color: #000;
+        }
     }
 }
 
+// Navbar
 .navbar__items {
     .clean-btn {
         color: #ffffff;

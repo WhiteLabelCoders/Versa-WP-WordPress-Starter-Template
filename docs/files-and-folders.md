@@ -25,7 +25,9 @@ Folder w którym wprowadzasz wszystkie zmiany.
 ## /dist
 Tutaj umieszczane są wszystkie pliki wynikowe, które są ładowane właśnie z tego miejsca na stronie.
 
-** Uwaga: Nie wprowadzaj zmian w tym folderze. **
+:::caution Uwaga
+Nie wprowadzaj zmian w tym folderze.
+:::
 
 ## /inc
 Tutaj znajdują się wszystkie pliki php w których będziesz wprowadzał zmiany.

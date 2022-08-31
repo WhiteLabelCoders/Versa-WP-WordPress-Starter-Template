@@ -6,7 +6,7 @@ sidebar_position: 7
 Najprostsza postać bloku ACF:
 Dodajemy plik class-nazwa-klasy.php do katalogu /inc/blocks, w którym rozszerzamy klasę Abstract_Block:
 
-```php
+```php title="File: ../inc/block/class-nazwa-klasy.php"
 namespace WLC\Blocks;
 
 use WLC\Core\Abstract_Block;
@@ -66,9 +66,7 @@ Tak przygotowaną klasę ładujemy w pliku functions.php
 
 ## Dodatkowe właściwości które możemy zdefiniować w konstruktorze klasy
 
-** File: .../wlc-starter-demo/inc/core/class-abstract-block.php **
-
-```php
+```php title="File: ../inc/core/class-abstract-block.php"
 /**
 * Block category.
 *
@@ -104,9 +102,7 @@ public $supports_align = array( 'full', 'wide' );
 ## Style i skrypty
 Definiując metodę enqueue_assets() możemy dodać do bloku style i skrypty ładowane tylko na stronach, na których występuje dany blok.
 
-** File: .../wlc-starter-demo/inc/core/class-abstract-block.php **
-
-```php
+```php title="File: .../wlc-starter-demo/inc/core/class-abstract-block.php"
 /**
  * Enqueue js and css files for this block.
  *
@@ -130,7 +126,6 @@ public function enqueue_assets() {
 }
 ```
 
-<br/>
 Możemy do tego wykorzystać funkcje pomocnicze
 
 ```php

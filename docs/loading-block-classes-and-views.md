@@ -4,8 +4,7 @@ sidebar_position: 5
 
 # Ładowanie klas bloków i widoków
 
-** File: .../wlc-starter-demo/functions.php **
-```php
+```php title="File: .../wlc-starter-demo/functions.php"
 $setup->hooks();
 $setup->class_loader(
     array(
