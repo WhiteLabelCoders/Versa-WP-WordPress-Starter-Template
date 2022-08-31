@@ -14,7 +14,7 @@ class Theme {
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 		add_action( 'acf/init', array( $this, 'theme_settings' ) );
 		add_filter( 'wpcf7_autop_or_not', '__return_false' ); // Remove Contact Form 7 paragraph wrappers.
-		add_action( 'block_categories', array( $this, 'theme_block_category' ), 10, 2 );
+		add_action( 'block_categories_all', array( $this, 'theme_block_category' ), 10, 2 );
 		add_action( 'init', array( new Woo_Commerce(), 'hooks' ) );
 	}
 
@@ -32,7 +32,6 @@ class Theme {
 		add_theme_support( 'editor-gradient-presets' );
 		add_theme_support( 'editor-styles' );
 		add_theme_support( 'featured-content' );
-		add_theme_support( 'html5' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'responsive-embeds' );
 		add_theme_support( 'title-tag' );
@@ -40,6 +39,16 @@ class Theme {
 		add_theme_support( 'widgets' );
 		add_theme_support( 'widgets-block-editor' );
 		add_theme_support( 'woocommerce' );
+		add_theme_support(
+			'html5',
+			array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			)
+		);
 	}
 
 
@@ -105,7 +114,7 @@ class Theme {
 			$categories,
 			array(
 				array(
-					'slug'  => 'WLC',
+					'slug'  => 'wlc',
 					'title' => __( 'White Label Coders', 'WLC' ),
 				),
 			)

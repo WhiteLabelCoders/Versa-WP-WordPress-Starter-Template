@@ -67,7 +67,7 @@ class Single_Post extends Index {
 	public static function post_details() {
 		?>
 			<div class="post__details">
-				<?php do_action( 'il_post_details' ); ?>
+				<?php do_action( 'wlc_post_details' ); ?>
 			</div>
 		<?php
 	}

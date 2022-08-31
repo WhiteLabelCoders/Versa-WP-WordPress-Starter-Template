@@ -156,7 +156,7 @@ class Simple_Block extends Abstract_Block {
 	 * @param int    $post_id ID post.
 	 */
 	public function render_frontend( array $block, $content = '', $is_preview = false, $post_id = 0 ) {
-		$content = get_field( $this->block_name );
+		$content = get_field( $this->block_snake_name );
 		$data    = explode( '_', $block['id'] )[1];
 		$id      = isset( $block['anchor'] ) ?? $data;
 		$class   = $this->get_block_class( $block );
@@ -164,12 +164,12 @@ class Simple_Block extends Abstract_Block {
 		?>
 		<section id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
 			<div class="container">
-				<h2><?php echo esc_html( $content['heading'] ); ?></h2>
+				<h2><?php echo esc_html( $content['heading'] ?? '' ); ?></h2>
 				<div class="text">
-					<?php echo wp_kses_post( $content['text'] ); ?>
+					<?php echo wp_kses_post( $content['text'] ?? '' ); ?>
 				</div>
 				<div class="img">
-					<?php echo wp_get_attachment_image( $content['image'], 'medium' ); ?>
+					<?php echo ( isset( $content['image'] ) ? wp_get_attachment_image( $content['image'], 'medium' ) : '' ); ?>
 				</div>
 			</div>
 		</section>
