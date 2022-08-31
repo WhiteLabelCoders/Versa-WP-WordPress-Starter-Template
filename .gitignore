@@ -11,3 +11,4 @@ yarn.lock
 /vendor
 .env
 /app/
+.vscode/
