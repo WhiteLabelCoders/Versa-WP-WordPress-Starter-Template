@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'WLC Starter - Documentation',
   tagline: 'Wordpress WLC starter documentation',
-  url: 'https://whitelabelcoders.com/',
-  baseUrl: '/',
+  url: 'https://github.com/WhiteLabelCoders',
+  baseUrl: '/wlc-starter/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
@@ -18,6 +18,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'WhiteLabelCoders', // Usually your GitHub org/user name.
   projectName: 'wlc-starter', // Usually your repo name.
+  deploymentBranch: 'documentation',
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want

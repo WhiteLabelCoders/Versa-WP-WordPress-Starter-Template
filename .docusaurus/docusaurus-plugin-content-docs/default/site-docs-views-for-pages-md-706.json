@@ -6,7 +6,7 @@
   "source": "@site/docs/views-for-pages.md",
   "sourceDirName": ".",
   "slug": "/views-for-pages",
-  "permalink": "/views-for-pages",
+  "permalink": "/wlc-starter/views-for-pages",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -17,6 +17,6 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Definiowanie bloków gutenberg",
-    "permalink": "/gutenberg-blocks"
+    "permalink": "/wlc-starter/gutenberg-blocks"
   }
 }
