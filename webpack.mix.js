@@ -33,7 +33,8 @@ mix.webpackConfig({
       patterns: [
         { from: 'assets/images', to: 'images/' },
         { from: 'assets/vendors', to: 'vendors/' },
-        { from: 'assets/svg', to: 'svg/' }
+        { from: 'assets/svg', to: 'svg/' },
+        { from: 'assets/fonts', to: 'fonts/' }
       ]
     }),
     new ImageMinimizerPlugin({
