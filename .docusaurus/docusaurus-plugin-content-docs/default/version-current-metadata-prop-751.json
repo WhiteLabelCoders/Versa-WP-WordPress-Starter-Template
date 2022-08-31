@@ -11,49 +11,49 @@
       {
         "type": "link",
         "label": "Informacje ogólne",
-        "href": "/",
+        "href": "/wlc-starter/",
         "docId": "intro"
       },
       {
         "type": "link",
         "label": "Pliki i foldery",
-        "href": "/files-and-folders",
+        "href": "/wlc-starter/files-and-folders",
         "docId": "files-and-folders"
       },
       {
         "type": "link",
         "label": "Funkcjonalności",
-        "href": "/functionalities",
+        "href": "/wlc-starter/functionalities",
         "docId": "functionalities"
       },
       {
         "type": "link",
         "label": "Hooki motywu",
-        "href": "/theme-hooks",
+        "href": "/wlc-starter/theme-hooks",
         "docId": "theme-hooks"
       },
       {
         "type": "link",
         "label": "Ładowanie klas bloków i widoków",
-        "href": "/loading-block-classes-and-views",
+        "href": "/wlc-starter/loading-block-classes-and-views",
         "docId": "loading-block-classes-and-views"
       },
       {
         "type": "link",
         "label": "View/class, block/class",
-        "href": "/view-class-block-class",
+        "href": "/wlc-starter/view-class-block-class",
         "docId": "view-class-block-class"
       },
       {
         "type": "link",
         "label": "Definiowanie bloków gutenberg",
-        "href": "/gutenberg-blocks",
+        "href": "/wlc-starter/gutenberg-blocks",
         "docId": "gutenberg-blocks"
       },
       {
         "type": "link",
         "label": "Widoki dla stron",
-        "href": "/views-for-pages",
+        "href": "/wlc-starter/views-for-pages",
         "docId": "views-for-pages"
       }
     ]

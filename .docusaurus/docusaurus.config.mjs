@@ -6,13 +6,14 @@
 export default {
   "title": "WLC Starter - Documentation",
   "tagline": "Wordpress WLC starter documentation",
-  "url": "https://whitelabelcoders.com/",
-  "baseUrl": "/",
+  "url": "https://github.com/WhiteLabelCoders",
+  "baseUrl": "/wlc-starter/",
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
   "favicon": "img/favicon.png",
   "organizationName": "WhiteLabelCoders",
   "projectName": "wlc-starter",
+  "deploymentBranch": "documentation",
   "i18n": {
     "defaultLocale": "pl",
     "locales": [

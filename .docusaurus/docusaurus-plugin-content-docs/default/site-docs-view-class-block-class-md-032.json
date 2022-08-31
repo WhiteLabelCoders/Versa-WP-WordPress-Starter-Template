@@ -6,7 +6,7 @@
   "source": "@site/docs/view-class-block-class.md",
   "sourceDirName": ".",
   "slug": "/view-class-block-class",
-  "permalink": "/view-class-block-class",
+  "permalink": "/wlc-starter/view-class-block-class",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -17,10 +17,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Ładowanie klas bloków i widoków",
-    "permalink": "/loading-block-classes-and-views"
+    "permalink": "/wlc-starter/loading-block-classes-and-views"
   },
   "next": {
     "title": "Definiowanie bloków gutenberg",
-    "permalink": "/gutenberg-blocks"
+    "permalink": "/wlc-starter/gutenberg-blocks"
   }
 }

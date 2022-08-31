@@ -9,7 +9,7 @@ const config = {
   title: 'WLC Starter - Documentation',
   tagline: 'Wordpress WLC starter documentation',
   url: 'https://github.com/WhiteLabelCoders',
-  baseUrl: '/',
+  baseUrl: '/wlc-starter/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',

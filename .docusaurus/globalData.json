@@ -1,53 +1,53 @@
 {
   "docusaurus-plugin-content-docs": {
     "default": {
-      "path": "/",
+      "path": "/wlc-starter/",
       "versions": [
         {
           "name": "current",
           "label": "Next",
           "isLast": true,
-          "path": "/",
+          "path": "/wlc-starter/",
           "mainDocId": "intro",
           "docs": [
             {
               "id": "files-and-folders",
-              "path": "/files-and-folders",
+              "path": "/wlc-starter/files-and-folders",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "functionalities",
-              "path": "/functionalities",
+              "path": "/wlc-starter/functionalities",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "gutenberg-blocks",
-              "path": "/gutenberg-blocks",
+              "path": "/wlc-starter/gutenberg-blocks",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "intro",
-              "path": "/",
+              "path": "/wlc-starter/",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "loading-block-classes-and-views",
-              "path": "/loading-block-classes-and-views",
+              "path": "/wlc-starter/loading-block-classes-and-views",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "theme-hooks",
-              "path": "/theme-hooks",
+              "path": "/wlc-starter/theme-hooks",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "view-class-block-class",
-              "path": "/view-class-block-class",
+              "path": "/wlc-starter/view-class-block-class",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "views-for-pages",
-              "path": "/views-for-pages",
+              "path": "/wlc-starter/views-for-pages",
               "sidebar": "tutorialSidebar"
             }
           ],
@@ -55,7 +55,7 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/",
+                "path": "/wlc-starter/",
                 "label": "intro"
               }
             }

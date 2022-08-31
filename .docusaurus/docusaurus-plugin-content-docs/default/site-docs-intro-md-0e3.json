@@ -6,7 +6,7 @@
   "source": "@site/docs/intro.md",
   "sourceDirName": ".",
   "slug": "/",
-  "permalink": "/",
+  "permalink": "/wlc-starter/",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -18,6 +18,6 @@
   "sidebar": "tutorialSidebar",
   "next": {
     "title": "Pliki i foldery",
-    "permalink": "/files-and-folders"
+    "permalink": "/wlc-starter/files-and-folders"
   }
 }

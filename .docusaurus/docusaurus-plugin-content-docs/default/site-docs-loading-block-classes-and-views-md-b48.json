@@ -6,7 +6,7 @@
   "source": "@site/docs/loading-block-classes-and-views.md",
   "sourceDirName": ".",
   "slug": "/loading-block-classes-and-views",
-  "permalink": "/loading-block-classes-and-views",
+  "permalink": "/wlc-starter/loading-block-classes-and-views",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -17,10 +17,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Hooki motywu",
-    "permalink": "/theme-hooks"
+    "permalink": "/wlc-starter/theme-hooks"
   },
   "next": {
     "title": "View/class, block/class",
-    "permalink": "/view-class-block-class"
+    "permalink": "/wlc-starter/view-class-block-class"
   }
 }

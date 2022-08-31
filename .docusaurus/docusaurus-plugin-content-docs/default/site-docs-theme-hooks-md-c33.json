@@ -6,7 +6,7 @@
   "source": "@site/docs/theme-hooks.md",
   "sourceDirName": ".",
   "slug": "/theme-hooks",
-  "permalink": "/theme-hooks",
+  "permalink": "/wlc-starter/theme-hooks",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -17,10 +17,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Funkcjonalności",
-    "permalink": "/functionalities"
+    "permalink": "/wlc-starter/functionalities"
   },
   "next": {
     "title": "Ładowanie klas bloków i widoków",
-    "permalink": "/loading-block-classes-and-views"
+    "permalink": "/wlc-starter/loading-block-classes-and-views"
   }
 }
