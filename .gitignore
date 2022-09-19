@@ -1,8 +1,0 @@
-.docusaurus/
-.history/
-.vscode/
-/build/
-/node_modules/
-*.DS_Store
-package-lock.json
-yarn.lock
